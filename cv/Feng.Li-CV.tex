@@ -19,11 +19,11 @@ dashed=none, maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \addbibresource{full.bib}
-\addbibresource{References.bib}
+\addbibresource{references-feng.bib}
 
 \usepackage{graphicx}
 \usepackage{fontawesome}
-\usepackage{hyperref}
+\usepackage[colorlinks=true]{hyperref}
 \hypersetup
 {
   pdfauthor={Feng Li, 李丰},
@@ -52,7 +52,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 %% Fancy symbols
 \usepackage{marvosym}
-
+\usepackage{xurl}
 %% Fancy header and footer
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -91,8 +91,8 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \texttt{
 \begin{tabular}{ l l |  l  l }
-  Assistant Professor and Associate Dean       &  & \Email   & feng.li@cufe.edu.cn   \\
-  School of Statistics and Mathematics         &  & \Telefon & +86-(0)10-6117-6189   \\
+  Associate Professor and Associate Dean       &  & \Email   & feng.li@cufe.edu.cn    \\
+  School of Statistics and Mathematics         &  & \Telefon & +86-(0)10-6117-6189    \\
   Central University of Finance and Economics  &  & \faGlobe & \url{https://feng.li/} \\
   Shahe University Park, 102206 Beijing, China &  &
 \end{tabular}}
@@ -130,9 +130,13 @@ Modeling $\circ$ Distributed Statistical Computing
 \end{itemize}
 
 \section*{Selected Publications}
-
+{\footnotesize (\emph{Complete publication list is available at Google Scholar}
+  \url{https://scholar.google.com/citations?user=elq0VRcAAAAJ})}
+\nocite{wang2021uncertainty}
+\nocite{kang2020deja}
 \nocite{hao2020bilinear}
-\nocite{kang2019gratis}
+\nocite{kang2020gratis}
+\nocite{kalesan2020intersections}
 \nocite{bailey2019changes}
 \nocite{li2019credit}
 \nocite{li2018improving}
@@ -146,36 +150,16 @@ Modeling $\circ$ Distributed Statistical Computing
 \printbibliography[heading=none,  nottype=software]
 
 \section*{Software}
+{\footnotesize (\emph{Software are available at} \url{https://github.com/feng-li})}
 \nocite{gratis}
 \nocite{spark-dlsa}
 \printbibliography[heading=none, type=software]
-{\footnotesize (Software are available at \url{https://github.com/feng-li})}
 
 % \renewcommand\refname{Selected Publications}
 % %\bibliographystyle{biometrika}
 % \bibliographystyle{unsrtnat}
 % \bibliography{full,References}
 
-\section*{Working Paper}
-
-%\printbibliography[heading=none, type=]
-
-\begin{itemize}
-
-\item Forecasting with similarity (with Yanfei Kang, Evangelos Spiliotis, Fotios Petropoulos, Nikolaos Athiniotis, and Vassilios Assimakopoulos)
-
-\item Least squares approximation for a distributed system (with Xuening Zhu and Hansheng Wang)
-
-\item FFORMPP: Feature-based forecast model performance prediction (with Thiyanga S. Talagala and Yanfei Kang)
-
-\item The uncertainty estimation of feature-based time series forecasts (with Xiaoqian Wang, Yanfei Kang and Fotios Petropoulos)
-
-\item Forecasting with time series imaging (with Xixi Li and Yanfei Kang)
-
-\end{itemize}
-
-{\footnotesize (Complete publication list is available at Google Scholar
-  \url{https://scholar.google.com/citations?user=elq0VRcAAAAJ})}
 
 
 \section*{Referee Work}
