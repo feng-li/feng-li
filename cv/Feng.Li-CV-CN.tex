@@ -2,10 +2,10 @@
 
 %%%%%%%%%%%%%%%%%% Non-Latin Languages Support %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[fontset=adobe]{ctex}
-% \usepackage{ctex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[twoside]{geometry}
+
 \geometry{lmargin=0.5in,rmargin=0.5in,tmargin=1in,bmargin=1in}
 \usepackage[raggedright]{titlesec}
 
@@ -58,7 +58,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \fancypagestyle{plain}{%
   \fancyhf{} % clear all header and footer fields
-  \fancyfoot[LO,RE]{\vspace{0.5cm}\emph{修改日期： \today \\最新个人简历请访问} \url{http://feng.li/}}
+  \fancyfoot[LO,RE]{\vspace{0.5cm}\emph{修改日期： \today \\最新个人简历请访问} \url{https://feng.li/}}
   \fancyfoot[C]{}
   \fancyfoot[LE,RO]{\vspace{0.5cm}\thepage}
   \renewcommand{\headrulewidth}{0pt}
@@ -66,7 +66,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \begin{document}
 \thispagestyle{plain}
-\section*{\Huge{李丰~博士}}
+\section*{\Huge{李丰~~博士}}
 \begin{center}
   \emph{\huge 个人简历}
 \end{center}
@@ -87,13 +87,12 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \section*{联系方式}
 
-\texttt{
-  \begin{tabular}{ l l |  l  l l l}
-    北京市昌平区沙河高教园   &  & \Email   & \href{mailto:feng.li@cufe.edu.cn}{feng.li@cufe.edu.cn} \\
-    中央财经大学（沙河校区） &  & \faGlobe & \url{http://feng.li/}                                  \\
-    统计与数学学院           &  & \Telefon & +86-(0)10-6117-6189                                    \\
-    邮编：102206             &  &          &
-  \end{tabular}}
+\begin{tabular}{ l l |  l  l l l}
+  北京市昌平区沙河高教园   &  & \Email   & \href{mailto:feng.li@cufe.edu.cn}{feng.li@cufe.edu.cn} \\
+  中央财经大学（沙河校区） &  & \faGlobe & \url{http://feng.li/}                                  \\
+  统计与数学学院           &  & \Telefon & +86-(0)10-6117-6189                                    \\
+  邮编：102206             &  &          &                                                        \\
+\end{tabular}
 
 \section*{教育背景}
 
@@ -113,10 +112,12 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \begin{itemize}
 \item 大数据分布式学习
 \item 贝叶斯推断与统计计算
-\item 计量经济与预测方法
+\item 计量经济学与预测方法
 
 \end{itemize}
-\section*{代表性论文}
+
+
+\section*{发表论文}
 \nocite{wang2021uncertainty}
 \nocite{kang2020deja}
 \nocite{hao2020bilinear}
@@ -181,11 +182,9 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
   \textbf{现代统计软件}                 & 本科生        & 中央财经大学           & 2014春         \\
   \textbf{专业英语}（现代统计前沿）$^*$ & 研究生/博士生 & 中央财经大学           & 2013-2016秋    \\
 
-  \textbf{R语言编程}$^*$&本科生/研究生&林雪平大学&  2012 春\\
-  \textbf{回归分析}$^*$&本科生&斯德哥尔摩大学&2008--2013\\
-  \textbf{时间序列}$^*$&本科生&斯德哥尔摩大学&2008--2013\\
-
-
+  \textbf{R语言编程}$^*$&本科生/研究生&瑞典林雪平大学&  2012 春\\
+  \textbf{回归分析}$^*$&本科生&瑞典斯德哥尔摩大学&2008--2013\\
+  \textbf{时间序列}$^*$&本科生&瑞典斯德哥尔摩大学&2008--2013\\
 \end{tabular}
 
 \section*{主办会议}
@@ -198,7 +197,6 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
   2014年6月27-28日, 中国北京。
 
 \item The Swedish Research Students Conference in Statistics, 2013, 瑞典斯德哥尔摩。
-
 \end{itemize}
 
 \section*{会议发言}
@@ -282,7 +280,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \item 瑞典中央银行会议 ``Modeling and Forecasting Economic and
   Financial Time Series with State Space
-  models''， 2008年10月 17---18日。
+  models''， 2008年10月 17---18日，瑞典斯德哥尔摩。
 \end{itemize}
 
 \section*{计算机水平}
@@ -322,7 +320,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \item  \emph{Studies in Nonlinear Dynamics \& Econometrics}
 \end{itemize}
 
-\section*{其他学术职责}
+\section*{其他学术兼职}
 \begin{tabular}{l p{0.8\textwidth} l}
 
 
@@ -331,14 +329,6 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
   2014-- & 中国统计教育学会高等教育分会副秘书长。\\
 
   2013--2014 & 2014年金融工程与风险管理国际研讨会执行秘书。\\
-
-  %% 2012--2013 & 瑞典首届统计学博士会议发起和组织者。
-  %% \url{http://gauss.stat.su.se/doktorand/srss2013/}.\\
-
-  %% 2012---2013 & 瑞典斯德哥尔摩大学统计学博士学术讲座发起和组织者（常规
-  %% 学术活动，每两周一次）。\url{http://gauss.stat.su.se/doktorand/seminars/}.\\
-
-  %% 2012---2013 & 瑞典斯德哥尔摩大学统计系IT改革小组成员。\\
 
 \end{tabular}
 
@@ -354,7 +344,3 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 % \footnotesize{\emph{* 联系人联系方式可以单独索取。}}
 \end{document}
-
-%%% Local Variables:
-%%% TeX-engine: xetex
-%%% End:
