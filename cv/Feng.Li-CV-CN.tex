@@ -14,7 +14,29 @@
 dashed=none, maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \addbibresource{full.bib}
-\addbibresource{references-feng.bib}
+\addbibresource{publication-feng.bib}
+
+
+% to highlight my name
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=author,
+      match=Li,
+      final]
+      \step[fieldset=keywords, fieldvalue=li]
+    }
+  }
+}
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifitemannotation{highlight}
+  {\textbf{#1}}
+  {#1}}
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifitemannotation{highlight}
+  {\textbf{#1}}
+  {#1}}
+
 
 
 \usepackage{titlesec}
@@ -88,10 +110,10 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \section*{联系方式}
 
 \begin{tabular}{ l l |  l  l l l}
-  北京市昌平区沙河高教园   &  & \Email   & \href{mailto:feng.li@cufe.edu.cn}{feng.li@cufe.edu.cn} \\
-  中央财经大学（沙河校区） &  & \faGlobe & \url{http://feng.li/}                                  \\
-  统计与数学学院           &  & \Telefon & +86-(0)10-6117-6189                                    \\
-  邮编：102206             &  &          &                                                        \\
+  北京市昌平区沙河高教园   &  & 邮　箱 & \href{mailto:feng.li@cufe.edu.cn}{\url{feng.li@cufe.edu.cn}} \\
+  中央财经大学（沙河校区） &  & 主　页 & \url{https://feng.li}                                  \\
+  统计与数学学院           &  & 实验室 & \url{https://kllab.org}                                    \\
+  邮编：102206             &  & 电　话 & \texttt{+86-(0)10-6117-6189}                                    \\
 \end{tabular}
 
 \section*{教育背景}
@@ -116,23 +138,26 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \end{itemize}
 
-
-\section*{发表论文}
-\nocite{wang2021uncertainty}
-\nocite{kang2020deja}
+\section*{学术发表}
+（\emph{标*为通讯作者} ）
+\nocite{zhu2021least}
+\nocite{wang2021uncertainty_jors}
+\nocite{kang2021deja_jbr}
 \nocite{hao2020bilinear}
-\nocite{kang2020gratis}
+\nocite{li2020forecasting}
+\nocite{kang2020gratis_sam}
+\nocite{li2020fppcn}
 \nocite{kalesan2020intersections}
 \nocite{bailey2019changes}
 \nocite{li2019credit}
-\nocite{li2018improving}
+\nocite{li2018improving_ijf}
 \nocite{pino2018cohort}
-\nocite{li2016distributed}
+\nocite{li2016distributedcn}
 \nocite{li2013bayesian}
-\nocite{li2013efficient}
+\nocite{li2013efficient_sjs}
 \nocite{li2011modeling}
-\nocite{li2010flexible}
-\printbibliography[heading=none,  nottype=software]
+\nocite{li2010flexible_jspi}
+\printbibliography[heading=none, nottype=software]
 
 \section*{软件}
 \nocite{gratis}
@@ -164,23 +189,24 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \end{itemize}
 
-\section*{所授课程}
+\section*{讲授课程}
 （\emph{标*为全英文授课。获取课程讲义请访问} \url{http://feng.li/teaching/}）
 
 \begin{tabular}{l l ll}
-  \textbf{统计计算}                     & 本科生        & 中央财经大学           & 2014--今       \\
-  \textbf{数据科学工具}                 & 本科生        & 中央财经大学           & 2008--今       \\
-  \textbf{大数据分布式计算}             & 研究生        & 专硕大数据联合培养硕士 & 2014秋--今     \\
-                                        & 研究生        & 北京大学               & 2019春--今     \\
-  \textbf{大数据计算机基础}             & 研究生        & 专硕大数据联合培养硕士 & 2015秋         \\
-  \textbf{应用统计案例选讲}             & 研究生        & 中央财经大学           & 2016-2018春    \\
-  \textbf{贝叶斯分析}$^*$               & 研究生        & 斯德哥尔摩大学         & 2013春         \\
-                                        & 本科生        & 中央财经大学           & 2017春         \\
-                                        & 研究生        & 首都师范大学           & 2017春         \\
-  \textbf{时间序列}                     & 研究生        & 中央财经大学           & 2015--2016春   \\
-  \textbf{计量经济学}$^*$               & 本科生        & 中央财经大学           & 2013秋--2015秋 \\
-  \textbf{现代统计软件}                 & 本科生        & 中央财经大学           & 2014春         \\
-  \textbf{专业英语}（现代统计前沿）$^*$ & 研究生/博士生 & 中央财经大学           & 2013-2016秋    \\
+  \textbf{统计计算}（中央财经大学精品实验课）       & 本科生        & 中央财经大学               & 2014--今       \\
+  \textbf{数据科学工具}（中央财经大学核心通识课课） & 本科生        & 中央财经大学               & 2008--今       \\
+  \textbf{大数据分布式计算}                         & 研究生        & 首都高校大数据联合培养硕士 & 2014秋--今     \\
+                                                    & 研究生        & 北京大学                   & 2019春--今     \\
+                                                    & 研究生        & 首都经济贸易大学           & 2020春--今     \\
+  \textbf{大数据计算机基础}                         & 研究生        & 首都高校大数据联合培养硕士 & 2015秋         \\
+  \textbf{应用统计案例选讲}                         & 研究生        & 中央财经大学               & 2016-2018春    \\
+  \textbf{贝叶斯分析}$^*$                           & 研究生        & 斯德哥尔摩大学             & 2013春         \\
+                                                    & 本科生        & 中央财经大学               & 2017春         \\
+                                                    & 研究生        & 首都师范大学               & 2017春         \\
+  \textbf{时间序列}                                 & 研究生        & 中央财经大学               & 2015--2016春   \\
+  \textbf{计量经济学}$^*$                           & 本科生        & 中央财经大学               & 2013秋--2015秋 \\
+  \textbf{现代统计软件}                             & 本科生        & 中央财经大学               & 2014春         \\
+  \textbf{专业英语}（现代统计前沿）$^*$             & 研究生/博士生 & 中央财经大学               & 2013-2016秋    \\
 
   \textbf{R语言编程}$^*$&本科生/研究生&瑞典林雪平大学&  2012 春\\
   \textbf{回归分析}$^*$&本科生&瑞典斯德哥尔摩大学&2008--2013\\
@@ -190,6 +216,10 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \section*{主办会议}
 
 \begin{itemize}
+
+\item The 2021 International Symposium on Forecasting -- China Hub, 2021年6月29日，中国北
+  京。
+
 \item  The 2017 Beijing Workshop on Forecasting, 2017年11月18日，中国北京。
 \item 中国数量经济学会2016年会，2016年10月15-17日，中国北京。
 
@@ -205,9 +235,17 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \begin{itemize}
 
+\item 40th International Symposium on Forecasting,  2020年10月25-11月5日。
+
+\item Twelfth International Conference on Monte Carlo Methods and Application (MCM 2019),
+  澳大利亚悉尼, 2019年7月8-12日.
+
+\item 39th International Symposium on Forecasting, Thessaloniki, 希腊 2019年6月16-19.
+
+\item ICSA Conference on Data Science, January 11-13, 2019, Xishuangbanna, China.
+
 \item International Symposium on Financial Engineering and Risk Management 2018, 2018年6月13,
   2018, 中国上海。邀请发言人。
-
 
 \item School of Data Science, Fudan University, Oct 28-30, 2017, 中国上海。
 
@@ -259,8 +297,8 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \end{itemize}
 
 
-\section*{学术活动}
-\emph{（仅列出部分近期活动}）
+\section*{学术访问}
+%\emph{（仅列出部分近期活动}）
 
 \begin{itemize}
 \item 参加美国经济学年会，\emph{2016年1月}。
@@ -310,8 +348,11 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \section*{担任期刊审稿}
 \begin{itemize}
+\item \emph{Pattern Recognition}
+\item \emph{Neurocomputing}
 \item  \emph{Journal of Business and Economics Statistics}
 \item  \emph{International Journal of Forecasting}
+\item  \emph{Computational Statistics and Data Analysis}
 \item  \emph{Journal of Statistical Computation and Simulation}
 \item  \emph{Australian \& New Zealand Journal of Statistics}
 \item  \emph{Journal of Official Statistics}
@@ -322,13 +363,9 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \section*{其他学术兼职}
 \begin{tabular}{l p{0.8\textwidth} l}
-
-
-  2015-- & 北京大数据协会理事。\\
-
-  2014-- & 中国统计教育学会高等教育分会副秘书长。\\
-
-  2013--2014 & 2014年金融工程与风险管理国际研讨会执行秘书。\\
+  2018--     & 全国工业统计学教学研究会常务理事、中国青年统计学家协会副秘书长 \\
+  2014--     & 中国统计教育学会高等教育分会副秘书长。                         \\
+  2013--2014 & 2014年金融工程与风险管理国际研讨会执行秘书。                   \\
 
 \end{tabular}
 
