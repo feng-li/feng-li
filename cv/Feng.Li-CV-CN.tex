@@ -13,9 +13,10 @@
 \usepackage[backend=biber, style=authoryear, sorting=ydnt,
 dashed=none, maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
+\renewcommand*\finalnamedelim{\addspace\&\space} % replace and with &
+\DeclareNameAlias{sortname}{last-first}
 \addbibresource{full.bib}
 \addbibresource{publication-feng.bib}
-
 
 % to highlight my name
 \DeclareSourcemap{
