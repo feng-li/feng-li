@@ -8,16 +8,37 @@
 \usepackage[twoside]{geometry}
 \geometry{margin=1in}
 %usepackage[raggedright]{titlesec}
-
+\linespread{1.25}
 \usepackage{bm}
 
 %% BibLaTeX
 \usepackage[backend=biber, style=authoryear, sorting=ydnt,
 dashed=none, maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
-
+\renewcommand*\finalnamedelim{\addspace\&\space} % replace and with &
+\DeclareNameAlias{sortname}{last-first}
 \addbibresource{full.bib}
-\addbibresource{references-feng.bib}
+\addbibresource{publication-feng.bib}
+
+% to highlight my name
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=author,
+      match=Li,
+      final]
+      \step[fieldset=keywords, fieldvalue=li]
+    }
+  }
+}
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifitemannotation{highlight}
+  {\textbf{#1}}
+  {#1}}
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifitemannotation{highlight}
+  {\textbf{#1}}
+  {#1}}
 
 \usepackage{graphicx}
 \usepackage{fontawesome}
@@ -35,8 +56,8 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 %\DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ } % Bug in fontspec
 %\usepackage{inconsolata}
 
-\usepackage[adobe-utopia]{mathdesign}
-\usepackage[T1]{fontenc}
+%\usepackage[adobe-utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
 
 %% Remove the spacing between paragraphs and have a small paragraph indentation
 \setlength{\parskip}{.1cm}
@@ -80,19 +101,20 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \hrule
 \section*{Personal Information}
 \begin{tabular}{l p{4cm} l  l l}
-  Given name/Surname:& Feng/Li& Name in Chinese: &   李丰\\
-  Place of birth: & Inner Mongolia, China & Nationality:& China\\
-  Gender: & Male & Languages: & English, Chinese  \\
+  Given name/Surname: & Feng/Li               & Name in Chinese: & 李丰             \\
+  Place of birth:     & Inner Mongolia, China & Nationality:     & China            \\
+  Gender:             & Male                  & Languages:       & English, Chinese \\
+  ORCID:              & \multicolumn{3}{l}{\url{https://orcid.org/0000-0002-4248-9778}} \\
 \end{tabular}
 
 \section*{Work Information}
 
 \texttt{
 \begin{tabular}{ l l |  l  l }
-  Associate Professor and Associate Dean       &  & \Email   & feng.li@cufe.edu.cn    \\
-  School of Statistics and Mathematics         &  & \Telefon & +86-(0)10-6117-6189    \\
-  Central University of Finance and Economics  &  & \faGlobe & \url{https://feng.li/} \\
-  Shahe University Park, 102206 Beijing, China &  &
+  Associate Professor and Associate Dean       &  & \Email   & feng.li@cufe.edu.cn          \\
+  School of Statistics and Mathematics         &  & \Telefon & \texttt{+86-(0)10-6117-6189} \\
+  Central University of Finance and Economics  &  & \faGlobe & \url{https://feng.li}        \\
+  Shahe University Park, 102206 Beijing, China &  & Lab      & \url{https://kllab.org}      \\
 \end{tabular}}
 
 \section*{Education}
@@ -130,20 +152,23 @@ Modeling $\circ$ Distributed Statistical Computing
 \section*{Selected Publications}
 {\footnotesize (\emph{Complete publication list is available at Google Scholar}
   \url{https://scholar.google.com/citations?user=elq0VRcAAAAJ})}
-\nocite{wang2021uncertainty}
-\nocite{kang2020deja}
+\nocite{zhu2021least}
+\nocite{wang2021uncertainty_jors}
+\nocite{kang2021deja_jbr}
 \nocite{hao2020bilinear}
-\nocite{kang2020gratis}
+\nocite{li2020forecasting}
+\nocite{kang2020gratis_sam}
+\nocite{li2020fppcn}
 \nocite{kalesan2020intersections}
 \nocite{bailey2019changes}
 \nocite{li2019credit}
-\nocite{li2018improving}
+\nocite{li2018improving_ijf}
 \nocite{pino2018cohort}
-\nocite{li2016distributed}
+\nocite{li2016distributedcn}
 \nocite{li2013bayesian}
-\nocite{li2013efficient}
+\nocite{li2013efficient_sjs}
 \nocite{li2011modeling}
-\nocite{li2010flexible}
+\nocite{li2010flexible_jspi}
 
 \printbibliography[heading=none,  nottype=software]
 
@@ -162,8 +187,11 @@ Modeling $\circ$ Distributed Statistical Computing
 
 \section*{Referee Work}
 \begin{itemize}
+\item \emph{Pattern Recognition}
+\item \emph{Neurocomputing}
 \item  \emph{Journal of Business and Economics Statistics}
 \item  \emph{International Journal of Forecasting}
+\item  \emph{Computational Statistics and Data Analysis}
 \item  \emph{Journal of Statistical Computation and Simulation}
 \item  \emph{Australian \& New Zealand Journal of Statistics}
 \item  \emph{Journal of Official Statistics}
