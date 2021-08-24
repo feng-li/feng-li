@@ -15,7 +15,6 @@ dashed=none, maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \renewcommand*\finalnamedelim{\addspace\&\space} % replace and with &
 \DeclareNameAlias{sortname}{last-first}
-\addbibresource{full.bib}
 \addbibresource{publication-feng.bib}
 
 % to highlight my name
@@ -81,7 +80,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \fancypagestyle{plain}{%
   \fancyhf{} % clear all header and footer fields
-  \fancyfoot[LO,RE]{\vspace{0.5cm}\emph{修改日期： \today \\最新个人简历请访问} \url{https://feng.li/}}
+  \fancyfoot[LO,RE]{\vspace{0.5cm}\tiny\emph{修改日期： \today \\最新个人简历请访问}  \url{https://feng.li/}}
   \fancyfoot[C]{}
   \fancyfoot[LE,RO]{\vspace{0.5cm}\thepage}
   \renewcommand{\headrulewidth}{0pt}
@@ -97,10 +96,10 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \section*{个人信息}
 \begin{tabular}{l p{4cm} l  l l}
-  姓名：& 李丰& 外文论文署名： &   Feng Li\\
-  % 性别： & 男 & 出生日期： &1984年1月16日\\
-  性别： & 男  &掌握语言： & 中文（母语），英语（流利）\\
-  ORCID:              & \multicolumn{3}{l}{\url{https://orcid.org/0000-0002-4248-9778}} \\
+  姓名：   & 李丰 & 外文论文署名： & Feng Li                                 \\
+  % 性别： & 男   & 出生日期：     & 1984年1月16日                           \\
+  性别：   & 男   & 掌握语言：     & 中文（母语），英语（流利）              \\
+  \includegraphics[height=1em]{orcid-logo}   & \multicolumn{3}{l}{\href{https://orcid.org/0000-0002-4248-9778}{0000-0002-4248-9778}} \\
 \end{tabular}
 
 \section*{工作单位}
@@ -113,18 +112,18 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \begin{tabular}{ l l |  l  l l l}
   北京市昌平区沙河高教园   &  & 邮　箱 & \href{mailto:feng.li@cufe.edu.cn}{\url{feng.li@cufe.edu.cn}} \\
-  中央财经大学（沙河校区） &  & 主　页 & \url{https://feng.li}                                  \\
-  统计与数学学院           &  & 实验室 & \url{https://kllab.org}                                    \\
-  邮编：102206             &  & 电　话 & \texttt{+86-(0)10-6117-6189}                                    \\
+  中央财经大学（沙河校区） &  & 主　页 & \url{https://feng.li}                                        \\
+  统计与数学学院           &  & 实验室 & \url{https://kllab.org}                                      \\
+  邮编：102206             &  & 电　话 & \texttt{+86-(0)10-6117-6189}                                 \\
 \end{tabular}
 
 \section*{教育背景}
 
 \begin{tabular}{ l  p{0.75\textwidth} l}
-  2008 --- 2013 &\textbf{统计学~博士}，瑞典斯德哥尔摩大学统计学系\\
-  & 博士论文：\emph{贝叶斯条件密度估计方法}\\
-  & 导师： Mattias Villani教授\\
-  & 答辩对手：Sylvia Frühwirth-Schnatter 教授\\
+  2008 --- 2013 & \textbf{统计学~博士}，瑞典斯德哥尔摩大学统计学系 \\
+                & 博士论文：\emph{贝叶斯条件密度建模(Bayesian Modeling of Conditional Densities)}          \\
+                & 导　　师： Mattias Villani教授                       \\
+                & 答辩主席：Sylvia Frühwirth-Schnatter 教授        \\
 
   2007 --- 2008 & \textbf{统计学~硕士}， 瑞典达拉那大学统计学系\\
 
@@ -142,7 +141,9 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \section*{学术发表}
 （\emph{标*为通讯作者} ）
-\nocite{zhu2021least}
+\nocite{pan2021note_jbes}
+\nocite{talagala2021fformpp_ijf}
+\nocite{zhu2021least_jcgs}
 \nocite{wang2021uncertainty_jors}
 \nocite{kang2021deja_jbr}
 \nocite{hao2020bilinear}
@@ -197,8 +198,9 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \begin{tabular}{l l ll}
   \textbf{统计计算}（中央财经大学精品实验课）       & 本科生        & 中央财经大学               & 2014--今       \\
   \textbf{数据科学工具}（中央财经大学核心通识课课） & 本科生        & 中央财经大学               & 2008--今       \\
-  \textbf{大数据分布式计算}                         & 研究生        & 首都高校大数据联合培养硕士 & 2014秋--今     \\
+  \textbf{大数据分布式计算}                         & 本科生/研究生 & 中央财经大学               & 2020秋--今     \\
                                                     & 研究生        & 北京大学                   & 2019春--今     \\
+                                                    & 研究生        & 首都高校大数据联合培养硕士 & 2014秋--2019秋 \\
                                                     & 研究生        & 首都经济贸易大学           & 2020春--今     \\
   \textbf{大数据计算机基础}                         & 研究生        & 首都高校大数据联合培养硕士 & 2015秋         \\
   \textbf{应用统计案例选讲}                         & 研究生        & 中央财经大学               & 2016-2018春    \\
@@ -219,8 +221,8 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \begin{itemize}
 
-\item The 2021 International Symposium on Forecasting -- China Hub, 2021年6月29日，中国北
-  京。
+  % \item The 2021 International Symposium on Forecasting -- China Hub, 2021年6月29日，中国
+  %   北京。
 
 \item  The 2017 Beijing Workshop on Forecasting, 2017年11月18日，中国北京。
 \item 中国数量经济学会2016年会，2016年10月15-17日，中国北京。
@@ -237,26 +239,31 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \begin{itemize}
 
-\item 40th International Symposium on Forecasting,  2020年10月25-11月5日。
+\item The 2021 World Meeting of the International Society for Bayesian Analysis, Jun
+  28— Jul 02, 2021。邀请发言人。
+
+\item The 41st International Symposium on Forecasting, 2021年7月27-30。邀请发言人。
+
+\item The 40th International Symposium on Forecasting,  2020年10月25-11月5日。邀请发言人。
 
 \item Twelfth International Conference on Monte Carlo Methods and Application (MCM 2019),
-  澳大利亚悉尼, 2019年7月8-12日.
+  澳大利亚悉尼, 2019年7月8-12日。邀请发言人。
 
-\item 39th International Symposium on Forecasting, Thessaloniki, 希腊 2019年6月16-19.
+\item The 39th International Symposium on Forecasting, Thessaloniki, 希腊 2019年6月16-19。邀请发言人。
 
-\item ICSA Conference on Data Science, January 11-13, 2019, Xishuangbanna, China.
+\item ICSA Conference on Data Science, January 11-13, 2019, Xishuangbanna, China。邀请发言人。
 
 \item International Symposium on Financial Engineering and Risk Management 2018, 2018年6月13,
   2018, 中国上海。邀请发言人。
 
-\item School of Data Science, Fudan University, Oct 28-30, 2017, 中国上海。
+\item School of Data Science, Fudan University, Oct 28-30, 2017, 中国上海。邀请发言人。
 
 \item IMS-China International Conference on Statistics and Probability, June 28 – July 1,
-  2017, 中国南宁。
+  2017, 中国南宁。邀请发言人。
 
 
 \item The 2016 World Meeting of the International Society for Bayesian Analysis, Jun
-  13—17, 2016, Sardinia, 意大利。
+  13—17, 2016, Sardinia, 意大利。邀请发言人。
 
 \item IMS-China International Conference on Statistics and Probability, June 1-4, 2015,
   Kunming, China. 邀请发言人。
@@ -268,7 +275,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \item 大数据决策与合规论坛，2014年5月20-21日，中国深圳。邀请发言人。
 
-\item Guanghua School of Management Peking University, Oct 14, 2013, 中国北京。
+\item Guanghua School of Management Peking University, Oct 14, 2013, 中国北京。邀请发言人。
 
 \item The 2012 World Meeting of the International Society for Bayesian
   Analysis， 2012年6月25日---29日， 日本。
