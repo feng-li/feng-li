@@ -1,21 +1,28 @@
-\documentclass[twoside,a4paper,11pt]{amsart}
-
+\documentclass[twoside,a4paper,10pt]{amsart}
 
 %%%%%%%%%%%%%%%%%% Non-Latin Languages Support %%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[fontset=adobe,scheme=plain]{ctex}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[twoside]{geometry}
+\usepackage[a4paper,text={16cm,25cm}]{geometry}
 \geometry{margin=1in}
-%usepackage[raggedright]{titlesec}
-\linespread{1.25}
-\usepackage{bm}
+\usepackage{setspace}
+\setstretch{1.25}
+
+\usepackage{enumitem}
+\setlist[enumerate,itemize]{listparindent=\parindent,leftmargin=2em}% Indented paragraphs within lists
 
 %% BibLaTeX
 \usepackage[backend=biber, style=authoryear, sorting=ydnt,
 dashed=none, maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \renewcommand*\finalnamedelim{\addspace\&\space} % replace and with &
+
+% Add enumerated numbers to bibliography output and keep the default sorting order.
+\defbibenvironment{bibliography}{\begin{enumerate}[label={[\arabic*]}]} {\end{enumerate}} {\item}
+
 \DeclareNameAlias{sortname}{last-first}
 \addbibresource{publications-feng.bib}
 
@@ -63,6 +70,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \setlength{\parindent}{1em}
 
 %% Remove space around section headings.
+
 \usepackage[compact,raggedright]{titlesec}
 \titlespacing{\section}{0pt}{0ex}{0ex}
 \titlespacing{\subsection}{0pt}{0ex}{0ex}
@@ -108,13 +116,14 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \section*{Work Information}
 
-\texttt{
+%\texttt{
 \begin{tabular}{ l l |  l  l }
-  Associate Professor and Associate Dean       &  & \Email   & feng.li@cufe.edu.cn          \\
-  School of Statistics and Mathematics         &  & \Telefon & \texttt{+86-(0)10-6117-6189} \\
-  Central University of Finance and Economics  &  & \faGlobe & \url{https://feng.li}        \\
-  Shahe University Park, 102206 Beijing, China &  & Lab      & \url{https://kllab.org}      \\
-\end{tabular}}
+  Associate Professor and Associate Dean       &  & \Email   & \href{mailto:feng.li@cufe.edu.cn}{feng.li@cufe.edu.cn} \\
+  School of Statistics and Mathematics         &  & \Telefon & \texttt{+86-(0)10-6117-6189}                           \\
+  Central University of Finance and Economics  &  & \faGlobe & \url{https://feng.li}                                  \\
+  Shahe University Park, 102206 Beijing, China &  & Lab      & \url{https://kllab.org}                                \\
+\end{tabular}
+%}
 
 \section*{Education}
 
@@ -122,14 +131,14 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
   2008--2013 & \textbf{Ph.D. of Statistics}, Stockholm University, Sweden. \\
              & Supervisor: Prof. Mattias Villani.                          \\
 
-             & Thesis topic: \emph{Bayesian Modeling of Conditional Densities}. \\
+             & Thesis: \emph{Bayesian Modeling of Conditional Densities}. \\
+             & (won the 2014 Cramér Prize for the best Ph.D. thesis in Statistics and Mathematical Statistics, awarded by the Swedish Statistical Society) \\
              & Thesis opponent: Prof. Sylvia Frühwirth-Schnatter.               \\
              & Assistant supervisor: Prof. Daniel Thorburn.                     \\
   2007--2008 & \textbf{Master of Statistics}, Darlarna
-                University, Sweden.                                             \\
+               University, Sweden.                                             \\
 
- 2003--2007 & \textbf{Bachelor of Statistics}, Renmin
-  University of China. \\
+ 2003--2007 & \textbf{Bachelor of Statistics}, Renmin University of China. \\
 \end{tabular}
 
 \section*{Research Interests}
@@ -149,60 +158,45 @@ Modeling $\circ$ Distributed Statistical Computing
 \end{itemize}
 
 \section*{Selected Publications}
-{\footnotesize (\emph{Complete publication list is available at Google Scholar}
+{\footnotesize (\emph{Complete publication list available at}
   \url{https://scholar.google.com/citations?user=elq0VRcAAAAJ})}
+\begin{refsection}
+
+\nocite{kang2021forecast_ejor}
 \nocite{pan2021note_jbes}
 \nocite{talagala2021fformpp_ijf}
 \nocite{zhu2021least_jcgs}
 \nocite{wang2021uncertainty_jors}
 \nocite{kang2021deja_jbr}
-\nocite{hao2020bilinear}
-\nocite{li2020forecasting}
+\nocite{hao2020bilinear_ced}
+\nocite{li2020forecasting_expert}
 \nocite{kang2020gratis_sam}
 \nocite{li2020fppcn}
-\nocite{kalesan2020intersections}
-\nocite{bailey2019changes}
-\nocite{li2019credit}
+\nocite{kalesan2020intersections_jsr}
+\nocite{bailey2019changes_plosone}
+\nocite{li2019credit_cef}
 \nocite{li2018improving_ijf}
-\nocite{pino2018cohort}
+\nocite{pino2018cohort_bmj}
 \nocite{li2016distributedcn}
 \nocite{li2013bayesian}
 \nocite{li2013efficient_sjs}
-\nocite{li2011modeling}
+\nocite{li2011modeling_mixtures}
 \nocite{li2010flexible_jspi}
 
-\printbibliography[heading=none,  nottype=software]
+\printbibliography[heading=none]
+\end{refsection}
 
 \section*{Software}
 {\footnotesize (\emph{Software are available at} \url{https://github.com/feng-li})}
+\begin{refsection}
 \nocite{gratis}
 \nocite{spark-dlsa}
-\printbibliography[heading=none, type=software]
-
+\printbibliography[heading=none]
+\end{refsection}
 % \renewcommand\refname{Selected Publications}
 % %\bibliographystyle{biometrika}
 % \bibliographystyle{unsrtnat}
 % \bibliography{full,References}
-
-
-
-\section*{Referee Work}
-\begin{itemize}
-\item \emph{Pattern Recognition}
-\item \emph{Neurocomputing}
-\item  \emph{Journal of Business and Economics Statistics}
-\item  \emph{International Journal of Forecasting}
-\item  \emph{Computational Statistics and Data Analysis}
-\item  \emph{Journal of Statistical Computation and Simulation}
-\item  \emph{Australian \& New Zealand Journal of Statistics}
-\item  \emph{Journal of Official Statistics}
-\item  \emph{Quantitative Finance}
-\item  \emph{Information Sciences}
-\item  \emph{Studies in Nonlinear Dynamics \& Econometrics}
-
-\end{itemize}
-
-
 
 \section*{Teaching}
 \begin{center}
@@ -350,6 +344,23 @@ Risk Management 2014.
 \item 2013: The Swedish Research Students Conference in Statistics.
 \item  2013:  2012–2013, PhD Study Group, Department of Statistics, Stockholm University.
 \end{itemize}
+
+\section*{Referee Work}
+\begin{itemize}
+\item \emph{Pattern Recognition}
+\item \emph{Neurocomputing}
+\item  \emph{Journal of Business and Economics Statistics}
+\item  \emph{International Journal of Forecasting}
+\item  \emph{Computational Statistics and Data Analysis}
+\item  \emph{Journal of Statistical Computation and Simulation}
+\item  \emph{Australian \& New Zealand Journal of Statistics}
+\item  \emph{Journal of Official Statistics}
+\item  \emph{Quantitative Finance}
+\item  \emph{Information Sciences}
+\item  \emph{Studies in Nonlinear Dynamics \& Econometrics}
+
+\end{itemize}
+
 
 \section*{Recent Academic Visits}
 

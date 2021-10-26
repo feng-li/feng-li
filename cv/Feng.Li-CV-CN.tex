@@ -5,16 +5,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[twoside]{geometry}
-\linespread{1.25}
 \geometry{lmargin=0.5in,rmargin=0.5in,tmargin=1in,bmargin=1in}
-\usepackage[raggedright]{titlesec}
+\usepackage{setspace}
+\setstretch{1.25}
+
+\usepackage{enumitem}
+\setlist[enumerate,itemize]{leftmargin=\parindent}% Indented paragraphs within lists
 
 %% BibLaTeX
-\usepackage[backend=biber, style=authoryear, sorting=ydnt,
-dashed=none, maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
+\usepackage[backend=biber, style=authoryear, sorting=ydnt, %bibstyle=numeric, %dashed=none,
+maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
+
+\defbibenvironment{bibliography}{\begin{enumerate}[label={[\arabic*]}]} {\end{enumerate}} {\item}
 \renewcommand*\finalnamedelim{\addspace\&\space} % replace and with &
 \DeclareNameAlias{sortname}{last-first}
+
 \addbibresource{publications-feng.bib}
 
 % to highlight my name
@@ -39,8 +45,14 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 
 
-\usepackage{titlesec}
-\titlespacing{\section}{0pt}{0pt}{0pt}
+%% Spacing
+\usepackage[compact,raggedright]{titlesec}
+%\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{0ex}{0ex}
+\titlespacing{\subsection}{0pt}{0ex}{0ex}
+\titlespacing{\subsubsection}{0pt}{0ex}{0ex}
+\setlength{\parskip}{0cm}
+\setlength{\parindent}{1em}
 
 \usepackage{bm}
 \usepackage{amsmath}
@@ -119,52 +131,53 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \section*{教育背景}
 
-\begin{tabular}{ l  p{0.75\textwidth} l}
-  2008 --- 2013 & \textbf{统计学~博士}，瑞典斯德哥尔摩大学统计学系                                \\
-                & 博士论文：\emph{贝叶斯条件密度建模(Bayesian Modeling of Conditional Densities)} \\
-                & 导　　师： Mattias Villani教授                                                  \\
-                & 答辩主席：奥地利维也纳经济大学Sylvia Frühwirth-Schnatter 教授                   \\
-  2007 --- 2008 & \textbf{统计学~硕士}， 瑞典达拉那大学统计学系                                   \\
-  2003 --- 2007 & \textbf{统计学~本科}， 中国人民大学统计学院                                     \\
+\begin{tabular}{ l  p{0.75\textwidth}}
+  2008 --- 2013 & \textbf{统计学~博士}，瑞典斯德哥尔摩大学统计学系                                       \\
+                & 博士论文：\emph{贝叶斯条件密度建模}(\emph{Bayesian Modeling of Conditional Densities}) \\
+                & 导　　师： Mattias Villani教授                                                         \\
+                & 答辩主席：奥地利维也纳经济大学Sylvia Frühwirth-Schnatter 教授                          \\
+  2007 --- 2008 & \textbf{统计学~硕士}， 瑞典达拉那大学统计学系                                          \\
+  2003 --- 2007 & \textbf{统计学~本科}， 中国人民大学统计学院                                            \\
 \end{tabular}
 
 \section*{研究兴趣}
 
-\begin{itemize}
-\item 大数据分布式学习
-\item 贝叶斯推断与统计计算
-\item 计量经济学与预测方法
+大数据分布式学习 $\circ$ 贝叶斯推断与统计计算 $\circ$ 计量经济学与预测方法
 
-\end{itemize}
 
 \section*{学术发表}
-（\emph{标*为通讯作者} ）
+（\emph{标$^*$为通讯作者，$^\#$为共同第一作者} ）
+\begin{refsection}
+\nocite{kang2021forecast_ejor}
 \nocite{pan2021note_jbes}
 \nocite{talagala2021fformpp_ijf}
 \nocite{zhu2021least_jcgs}
 \nocite{wang2021uncertainty_jors}
 \nocite{kang2021deja_jbr}
-\nocite{hao2020bilinear}
-\nocite{li2020forecasting}
+\nocite{hao2020bilinear_ced}
+\nocite{li2020forecasting_expert}
 \nocite{kang2020gratis_sam}
 \nocite{li2020fppcn}
-\nocite{kalesan2020intersections}
-\nocite{bailey2019changes}
-\nocite{li2019credit}
+\nocite{kalesan2020intersections_jsr}
+\nocite{bailey2019changes_plosone}
+\nocite{li2019credit_cef}
 \nocite{li2018improving_ijf}
-\nocite{pino2018cohort}
+\nocite{pino2018cohort_bmj}
 \nocite{li2016distributedcn}
 \nocite{li2013bayesian}
 \nocite{li2013efficient_sjs}
-\nocite{li2011modeling}
+\nocite{li2011modeling_mixtures}
 \nocite{li2010flexible_jspi}
-\printbibliography[heading=none, nottype=software]
+\printbibliography[heading=none]
+\end{refsection}
 
 \section*{软件}
+\begin{refsection}
 \nocite{gratis}
 \nocite{spark-dlsa}
-\printbibliography[heading=none, type=software]
+\printbibliography[heading=none]
 %{\footnotesize (软件更新 \url{https://github.com/feng-li})}
+\end{refsection}
 
 \section*{科研课题}
 
