@@ -2,8 +2,11 @@
 
 %%%%%%%%%%%%%%%%%% Non-Latin Languages Support %%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[fontset=adobe,scheme=plain]{ctex}
-\usepackage{fontspec}
-\setmainfont{Times New Roman}
+\usepackage{fontspec} %% XeLaTeX and LuaLaTeX only
+%% \setmainfont{Times New Roman}
+\usepackage{unicode-math}
+\setmainfont{TeX Gyre Termes}
+\setmathfont{TeX Gyre Termes Math}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[a4paper,text={16cm,25cm}]{geometry}
@@ -20,10 +23,10 @@ dashed=none, maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \renewcommand*\finalnamedelim{\addspace\&\space} % replace and with &
 
+
 % Add enumerated numbers to bibliography output and keep the default sorting order.
 \defbibenvironment{bibliography}{\begin{enumerate}[label={[\arabic*]}]} {\end{enumerate}} {\item}
-
-\DeclareNameAlias{sortname}{last-first}
+\DeclareNameAlias{sortname}{family-given}
 \addbibresource{publications-feng.bib}
 
 % to highlight my name
