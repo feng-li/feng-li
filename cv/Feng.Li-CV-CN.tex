@@ -23,6 +23,7 @@
 \usepackage[backend=biber, style=authoryear, sorting=ydnt, %bibstyle=numeric, %dashed=none,
 maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
+\renewbibmacro{in:}{}
 
 \defbibenvironment{bibliography}{\begin{enumerate}[label={[\arabic*]}]} {\end{enumerate}} {\item}
 \renewcommand*\finalnamedelim{\addspace\&\space} % replace and with &
@@ -143,6 +144,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \begin{tabular}{ l  p{0.75\textwidth}}
   2008 --- 2013 & \textbf{统计学~博士}，瑞典斯德哥尔摩大学统计学系                                       \\
                 & 博士论文：\emph{贝叶斯条件密度建模}(\emph{Bayesian Modeling of Conditional Densities}) \\
+                & (获评2014年瑞典最佳统计学博士论文——Cramér Prize)                                       \\
                 & 导　　师： Mattias Villani教授                                                         \\
                 & 答辩主席：奥地利维也纳经济大学Sylvia Frühwirth-Schnatter 教授                          \\
   2007 --- 2008 & \textbf{统计学~硕士}， 瑞典达拉那大学统计学系                                          \\
