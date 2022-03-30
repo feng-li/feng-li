@@ -14,19 +14,22 @@
 \usepackage{setspace}
 \setstretch{1.25}
 
+\usepackage{booktabs}
 \usepackage{enumitem}
 \setlist[enumerate,itemize]{listparindent=\parindent,leftmargin=2em}% Indented paragraphs within lists
 
 %% BibLaTeX
-\usepackage[backend=biber, style=authoryear, sorting=ydnt,
-dashed=none, maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
+\usepackage[backend=biber, style=authoryear, sorting=ydnt, giveninits=false, dashed=none,
+maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
-\renewbibmacro{in:}{}
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+\DeclareNameAlias{sortname}{family-given}
 \renewcommand*\finalnamedelim{\addspace\&\space} % replace and with &
 
 % Add enumerated numbers to bibliography output and keep the default sorting order.
 \defbibenvironment{bibliography}{\begin{enumerate}[label={[\arabic*]}]} {\end{enumerate}} {\item}
-\DeclareNameAlias{sortname}{family-given}
 \addbibresource{publications-feng.bib}
 
 % to highlight my name
@@ -146,7 +149,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \section*{Research Interests}
 
-Bayesian Inference $\circ$ Econometrics \& Forecasting $\circ$ Multivariate
+xfBayesian Inference $\circ$ Econometrics \& Forecasting $\circ$ Multivariate
 Modeling $\circ$ Distributed Statistical Computing
 
 
@@ -167,7 +170,7 @@ Modeling $\circ$ Distributed Statistical Computing
 \nocite{anderer2022forecasting_ijf}
 \nocite{janeway2021clinical_jad}
 \nocite{petropoulos2021forecasting_ijf}
-\nocite{kang2021forecast_ejor}
+\nocite{kang2022forecast_ejor}
 \nocite{pan2021note_jbes}
 \nocite{talagala2021fformpp_ijf}
 \nocite{zhu2021least_jcgs}
@@ -208,7 +211,8 @@ Modeling $\circ$ Distributed Statistical Computing
 
 \section*{Teaching}
 \begin{center}
-\begin{tabular}{p{6.5cm}lll}
+  \begin{tabular}{p{6.5cm}lll}
+    \toprule
   {Statistical Computing}              & U    & CUFE          & 2014--     \\
   {Distributed Statistical Computing}  & G    & CUFE, PKU     & 2014--     \\
   {Tools for Data Science}             & U    & CUFE          & 2019--     \\
@@ -222,7 +226,8 @@ Modeling $\circ$ Distributed Statistical Computing
   {Regression Analysis}$^*$            & U    & SU            & 2008--2013 \\
   {Time Series Analysis}               & G    & CUFE          & 2015--2016 \\
   {Time Series Analysis}$^*$           & U    & SU            & 2008--2013 \\
-\end{tabular}
+    \bottomrule
+  \end{tabular}
 \end{center}
 {\footnotesize (\emph{All course materials are available at
     \emph{\url{https://feng.li/teaching/}}. Courses marked with * are taught in English. U: undergraduate level, G: graduate level. })}
@@ -395,6 +400,8 @@ Risk Management 2014.
 % \end{itemize}
 
 % \footnotesize{\emph{* Detailed contact information available upon request.}}
+
+
 \end{document}
 
 %%% Local Variables:

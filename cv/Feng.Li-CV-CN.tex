@@ -23,12 +23,13 @@
 \usepackage[backend=biber, style=authoryear, sorting=ydnt, %bibstyle=numeric, %dashed=none,
 maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
-\renewbibmacro{in:}{}
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+\DeclareNameAlias{sortname}{family-given}
 
 \defbibenvironment{bibliography}{\begin{enumerate}[label={[\arabic*]}]} {\end{enumerate}} {\item}
 \renewcommand*\finalnamedelim{\addspace\&\space} % replace and with &
-\DeclareNameAlias{sortname}{last-first}
-
 \addbibresource{publications-feng.bib}
 
 % to highlight my name
@@ -187,7 +188,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \nocite{anderer2022forecasting_ijf}
 \nocite{janeway2021clinical_jad}
 \nocite{petropoulos2021forecasting_ijf}
-\nocite{kang2021forecast_ejor}
+\nocite{kang2022forecast_ejor}
 \nocite{pan2021note_jbes}
 \nocite{talagala2021fformpp_ijf}
 \nocite{zhu2021least_jcgs}
