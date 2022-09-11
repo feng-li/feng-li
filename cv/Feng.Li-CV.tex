@@ -1,59 +1,80 @@
-\documentclass[twoside,a4paper,10pt]{amsart}
+\documentclass[twoside,a4paper,10.5pt]{article}
 
-%%%%%%%%%%%%%%%%%% Non-Latin Languages Support %%%%%%%%%%%%%%%%%%%%%%%
+%% Fonts
 \usepackage[fontset=adobe,scheme=plain]{ctex}
-\usepackage{fontspec} %% XeLaTeX and LuaLaTeX only
-%% \setmainfont{Times New Roman}
-\usepackage{unicode-math}
-\setmainfont{TeX Gyre Termes}
-\setmathfont{TeX Gyre Termes Math}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setmainfont{Garamond Premier Pro}
+% \setmainfont{Adobe Garamond Pro}
+\usepackage{fontawesome}
 
-\usepackage[a4paper,text={16cm,25cm}]{geometry}
-\geometry{margin=1in}
+%% Geometry
+\usepackage[twoside]{geometry}
+\geometry{lmargin=0.5in,rmargin=0.5in,tmargin=1in,bmargin=1in}
 \usepackage{setspace}
 \setstretch{1.25}
 
-\usepackage{booktabs}
-\usepackage{enumitem}
-\setlist[enumerate,itemize]{listparindent=\parindent,leftmargin=2em}% Indented paragraphs within lists
-
 %% BibLaTeX
-\usepackage[backend=biber, style=authoryear, sorting=ydnt, giveninits=false, dashed=none,
-maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
-natbib=true,uniquelist=false, uniquename=false]{biblatex}
+\usepackage[backend=biber, style=authoryear, sorting=ydnt, url=false, dashed=none, maxcitenames=2, maxbibnames=99, giveninits=false, hyperref=true, natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{%
   \printtext{\bibstring{in}\intitlepunct}}}
-\DeclareNameAlias{sortname}{family-given}
-\renewcommand*\finalnamedelim{\addspace\&\space} % replace and with &
+\DeclareNameAlias{sortname}{given-family}
 
-% Add enumerated numbers to bibliography output and keep the default sorting order.
-\defbibenvironment{bibliography}{\begin{enumerate}[label={[\arabic*]}]} {\end{enumerate}} {\item}
+% Remove addendum entry.
+\AtEveryBibitem{%
+  \clearfield{addendum}%
+}
+
+% replace and with &
+\renewcommand*\finalnamedelim{\addspace\&\space}
+
+% Number with brackets, bold italic for journal names
+\DeclareFieldFormat[article]{number}{(#1)}
+\DeclareFieldFormat{journaltitle}{\mkbibbold{\mkbibitalic{#1}}}
+\DeclareFieldFormat{booktitle}{\mkbibbold{\mkbibitalic{#1}}}
+
+% Reverse enumerated numbers to bibliography and keep the default sorting order.
+\usepackage{etaremune}
+\defbibenvironment{bibliography}{\begin{etaremune}[itemsep=1ex,parsep=0pt]} {\end{etaremune}} {\item}
+\renewcommand{\labelenumi}{[\theenumi]}
+
 \addbibresource{publications-feng.bib}
 
-% to highlight my name
-\DeclareSourcemap{
-  \maps[datatype=bibtex]{
-    \map{
-      \step[fieldsource=author,
-      match=Li,
-      final]
-      \step[fieldset=keywords, fieldvalue=li]
-    }
-  }
-}
-\renewcommand*{\mkbibnamegiven}[1]{%
-  \ifitemannotation{highlight}
-  {\textbf{#1}}
-  {#1}}
-\renewcommand*{\mkbibnamefamily}[1]{%
-  \ifitemannotation{highlight}
-  {\textbf{#1}}
-  {#1}}
 
+%% Highlight certain author name
+\usepackage{xpatch}
+\makeatletter
+\newbibmacro*{name:bold}[2]{%
+  \edef\blx@tmp@name{\expandonce#1, \expandonce#2}%
+  \def\do##1{\ifdefstring{\blx@tmp@name}{##1}{\bfseries\listbreak}{}}%
+  \dolistloop{\boldnames}}
+\newcommand*{\boldnames}{}
+\makeatother
+\xpretobibmacro{name:family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:given-family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:family-given}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}
+\xapptobibmacro{name:family}{\endgroup}{}{}
+\xapptobibmacro{name:given-family}{\endgroup}{}{}
+\xapptobibmacro{name:family-given}{\endgroup}{}{}
+\xapptobibmacro{name:delim}{\endgroup}{}{}
+
+% List your own name variants that are to be highlighted
+\forcsvlist{\listadd\boldnames}
+{{Li, Feng}, {Li, F.}}
+
+%% Spacing
+\usepackage{enumitem}
+\setlist[enumerate,itemize]{nosep,listparindent=\parindent,leftmargin=2em}% Indented paragraphs within lists
+
+\usepackage[compact,raggedright]{titlesec}
+\titlespacing{\section}{0pt}{0ex}{0ex}
+\titlespacing{\subsection}{0pt}{0ex}{0ex}
+\titlespacing{\subsubsection}{0pt}{0ex}{0ex}
+\setlength{\parskip}{.0em}
+\setlength{\parindent}{1em}
+
+\usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{fontawesome}
 \usepackage[colorlinks=true]{hyperref}
 \hypersetup
 {
@@ -63,28 +84,6 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
   pdfkeywords={Feng Li, 李丰, Stockholm University, Statistics, CV, Resume, http://feng.li/}
 }
 
-%% Fonts
-% \usepackage[garamond]{mathdesign}
-%\DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ } % Bug in fontspec
-%\usepackage{inconsolata}
-
-%\usepackage[adobe-utopia]{mathdesign}
-%\usepackage[T1]{fontenc}
-
-%% Remove the spacing between paragraphs and have a small paragraph indentation
-\setlength{\parskip}{.1cm}
-\setlength{\parindent}{1em}
-
-%% Remove space around section headings.
-
-\usepackage[compact,raggedright]{titlesec}
-\titlespacing{\section}{0pt}{0ex}{0ex}
-\titlespacing{\subsection}{0pt}{0ex}{0ex}
-\titlespacing{\subsubsection}{0pt}{0ex}{0ex}
-
-%% Fancy symbols
-\usepackage{marvosym}
-\usepackage{xurl}
 %% Fancy header and footer
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -94,7 +93,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \fancyhead[LO,RE]{\emph{Curriculum Vitæ}}
 
 \fancyfoot[C]{}
-%\fancyfoot[LO,RE]{\vspace{0.5cm}\emph{Revised on \today}}
+\fancyfoot[LO,RE]{}
 \fancyfoot[RO,LE]{\vspace{0.5cm}\thepage}
 
 \fancypagestyle{plain}{%
@@ -102,7 +101,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \fancyhead[L]{\Huge \textbf{Dr. Feng Li}}
 
 \fancyhead[R]{\emph{Curriculum Vitae}}
-\fancyfoot[LO,RE]{\vspace{0.5cm}\emph{Revised on \today}}
+\fancyfoot[LO,RE]{\vspace{0.5cm}\emph{Revised on \today.}}
 \fancyfoot[C]{}
 \fancyfoot[LE,RO]{\vspace{0.5cm}\thepage}
 \renewcommand{\headrulewidth}{0pt}
@@ -124,10 +123,10 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 %\texttt{
 \begin{tabular}{ l l |  l  l }
-  Associate Professor and Associate Dean       &  & \Email   & \href{mailto:feng.li@cufe.edu.cn}{feng.li@cufe.edu.cn} \\
-  School of Statistics and Mathematics         &  & \Telefon & \texttt{+86-(0)10-6117-6189}                           \\
-  Central University of Finance and Economics  &  & \faGlobe & \url{https://feng.li}                                  \\
-  Shahe University Park, 102206 Beijing, China &  & Lab      & \url{https://kllab.org}                                \\
+  Associate Professor and Associate Dean       &  & \faEnvelopeO   & \href{mailto:feng.li@cufe.edu.cn}{feng.li@cufe.edu.cn} \\
+  School of Statistics and Mathematics         &  & \faPhone & +86-(0)10-6117-6189                           \\
+  Central University of Finance and Economics  &  & \faHome & \url{https://feng.li}                                  \\
+  Shahe University Park, 102206 Beijing, China &  & \faGroup      & \url{https://kllab.org}                                \\
 \end{tabular}
 %}
 
@@ -149,17 +148,14 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \section*{Research Interests}
 
-xfBayesian Inference $\circ$ Econometrics \& Forecasting $\circ$ Multivariate
-Modeling $\circ$ Distributed Statistical Computing
+Bayesian Inference $\circ$ Econometrics \& Forecasting $\circ$ Multivariate Modeling $\circ$ Distributed Statistical Computing
 
 
 \section*{Grants and Projects}
 \begin{itemize}
-\item Efficient Bayesian Flexible Density Methods with High Dimensional Financial Data
-  funded by National Natural Science Foundation of China, (2016-2019). Principal investigator.
+\item Efficient Bayesian Flexible Density Methods with High Dimensional Financial Data funded by National Natural Science Foundation of China, (2016-2019). Principal investigator.
 
-\item Bayesian Multivariate Density Estimation Methods for Complex Data funded by Ministry
-  of Education, China (2014-2016). Principal investigator
+\item Bayesian Multivariate Density Estimation Methods for Complex Data funded by Ministry of Education, China (2014-2016). Principal investigator
 
 \end{itemize}
 
@@ -167,17 +163,20 @@ Modeling $\circ$ Distributed Statistical Computing
 
 \begin{refsection}
 
+\nocite{li2022bayesian_ijf}
+\nocite{wang2022escalator_safety}
+\nocite{wang2022distributed_ijf}
 \nocite{anderer2022forecasting_ijf}
 \nocite{janeway2021clinical_jad}
 \nocite{petropoulos2021forecasting_ijf}
 \nocite{kang2022forecast_ejor}
 \nocite{pan2021note_jbes}
-\nocite{talagala2021fformpp_ijf}
+\nocite{talagala2022fformpp_ijf}
 \nocite{zhu2021least_jcgs}
-\nocite{wang2021uncertainty_jors}
+\nocite{wang2022uncertainty_jors}
 \nocite{kang2021deja_jbr}
 \nocite{hao2020bilinear_ced}
-\nocite{li2020forecasting_expert}
+\nocite{li2020forecasting_eswa}
 \nocite{kang2020gratis_sam}
 \nocite{kang2020statscompcn}
 \nocite{li2020fppcn}
@@ -204,10 +203,6 @@ Modeling $\circ$ Distributed Statistical Computing
 \nocite{spark-dlsa}
 \printbibliography[heading=none]
 \end{refsection}
-% \renewcommand\refname{Selected Publications}
-% %\bibliographystyle{biometrika}
-% \bibliographystyle{unsrtnat}
-% \bibliography{full,References}
 
 \section*{Teaching}
 \begin{center}
@@ -237,8 +232,7 @@ Modeling $\circ$ Distributed Statistical Computing
 \begin{itemize}
 
 
-\item Twelfth International Conference on Monte Carlo Methods and Application (MCM 2019),
-  Sydney, Australia, from July 8 to 12, 2019.
+\item Twelfth International Conference on Monte Carlo Methods and Application (MCM 2019), Sydney, Australia, from July 8 to 12, 2019.
 
 \item 39th International Symposium on Forecasting, Thessaloniki, Greece 16-19 June 2019.
 
@@ -246,25 +240,19 @@ Modeling $\circ$ Distributed Statistical Computing
 
 \item School of Data Science, Fudan University, Oct 28-30, 2017, Shanghai, China
 
-\item International Symposium on Financial Engineering and Risk Management 2018, June 13,
-2018, Shanghai, China.
+\item International Symposium on Financial Engineering and Risk Management 2018, June 13, 2018, Shanghai, China.
 
 \item School of Data Science, Fudan University, Oct 28-30, 2017, Shanghai, China
 
-\item IMS-China International Conference on Statistics and Probability, June 28 – July 1,
-2017, Nanning, China.
+\item IMS-China International Conference on Statistics and Probability, June 28 – July 1, 2017, Nanning, China.
 
-\item The 1st International Conference on Econometrics and Statistics, Hong Kong, 15-17
-June 2017.
+\item The 1st International Conference on Econometrics and Statistics, Hong Kong, 15-17 June 2017.
 
-\item The 2016 World Meeting of the International Society for Bayesian Analysis, Jun
-13—17, 2016, Sardinia, Italy.
+\item The 2016 World Meeting of the International Society for Bayesian Analysis, Jun 13—17, 2016, Sardinia, Italy.
 
-\item IMS-China International Conference on Statistics and Probability, June 1-4, 2015,
-Kunming, China.
+\item IMS-China International Conference on Statistics and Probability, June 1-4, 2015, Kunming, China.
 
-\item International Symposium on Financial Engineering and Risk Management 2014, June 27,
-2014, Beijing, China.
+\item International Symposium on Financial Engineering and Risk Management 2014, June 27, 2014, Beijing, China.
 
 \item Guanghua School of Management Peking University, Oct 14, 2013, Beijing, China
 
@@ -272,26 +260,19 @@ Kunming, China.
 
 \item The 59th World Statistics Congress, August 25-29, 2013, Hong Kong.
 
-\item The 2012 World Meeting of the International Society for Bayesian Analysis, Jun
-25--29, 2012, Japan. Poster presentation.
+\item The 2012 World Meeting of the International Society for Bayesian Analysis, Jun 25--29, 2012, Japan. Poster presentation.
 
-\item The third Linnaeus University Workshop in Stochastic Analysis and Applications, May
-24--25, Växjö. Invited speaker.
+\item The third Linnaeus University Workshop in Stochastic Analysis and Applications, May 24--25, Växjö. Invited speaker.
 
-\item Seminar at Department of Energy and Technology, Swedish University of Agricultural
-Sciences, Apr 16, 2012, Sweden.
+\item Seminar at Department of Energy and Technology, Swedish University of Agricultural Sciences, Apr 16, 2012, Sweden.
 
-\item Workshop on ``Analysis of High-Dimensional Data'', Jönköping International Business
-School, Feb 16--17, 2012, Sweden. Invited speaker.
+\item Workshop on ``Analysis of High-Dimensional Data'', Jönköping International Business School, Feb 16--17, 2012, Sweden. Invited speaker.
 
-\item The LiU Seminar Series in Statistics and Mathematical Statistics, Linköping
-University, Oct 11, 2011, Sweden. Invited speaker.
+\item The LiU Seminar Series in Statistics and Mathematical Statistics, Linköping University, Oct 11, 2011, Sweden. Invited speaker.
 
-\item The 42nd Winter Conference in Statistics -- Incomplete data: semi-parametric and
-Bayesian methods, Mar 6--10, 2011, Sweden. Invited speaker.
+\item The 42nd Winter Conference in Statistics -- Incomplete data: semi-parametric and Bayesian methods, Mar 6--10, 2011, Sweden. Invited speaker.
 
-\item The 2010 World Meeting of the International Society for Bayesian Analysis, Jun
-3--8, 2010, Spain. Poster presentation.
+\item The 2010 World Meeting of the International Society for Bayesian Analysis, Jun 3--8, 2010, Spain. Poster presentation.
 
 \item Seminar at Department of statistics, Uppsala University, Sep 16, 2009, Sweden.
 
@@ -300,20 +281,13 @@ Bayesian methods, Mar 6--10, 2011, Sweden. Invited speaker.
 
 \section*{Other Conferences \& Activities}
 \begin{itemize}
-\item Visiting Devision of Statistics, Department of Computer and Information
-  Science, Linköping University, Sweden, Sep 1, 2011 -- Feb 29,2012.
+\item Visiting Devision of Statistics, Department of Computer and Information Science, Linköping University, Sweden, Sep 1, 2011 -- Feb 29,2012.
 
-\item Intensive PhD course: ``Introduction to Bayesian Analysis and MCMC, and,
-  Hierarchical Modelling of Spatial and Temporal Data'' by Alan Gelfand (Duke University)
-  and Sujit Sahu (University of Southampton), June 7--10, 2011, University of Southampton,
-  UK.
+\item Intensive PhD course: ``Introduction to Bayesian Analysis and MCMC, and, Hierarchical Modelling of Spatial and Temporal Data'' by Alan Gelfand (Duke University) and Sujit Sahu (University of Southampton), June 7--10, 2011, University of Southampton, UK.
 
-\item Intensive PhD course: ``Semi-Parametric Bayesian Inference in
-  Econometrics'' by Peter Rossi (University of Chicago), May 27--29,
-    2009, Erasmus University Rotterdam, The Netherlands.
+\item Intensive PhD course: ``Semi-Parametric Bayesian Inference in Econometrics'' by Peter Rossi (University of Chicago), May 27--29, 2009, Erasmus University Rotterdam, The Netherlands.
 
-\item Conference ``Modeling and Forecasting Economic and Financial Time Series with State
-  Space models'', Central Bank of Sweden, Oct 17--18, 2008.
+\item Conference ``Modeling and Forecasting Economic and Financial Time Series with State Space models'', Central Bank of Sweden, Oct 17--18, 2008.
 \end{itemize}
 
 \section*{Awards \& Grants}
@@ -321,25 +295,22 @@ Bayesian methods, Mar 6--10, 2011, Sweden. Invited speaker.
 
 \item The 2014 Cramér Prize, Mar 2014.
 
-\item International Society for Bayesian Analysis junior travel award,
-  Jun, 2012.
+\item International Society for Bayesian Analysis junior travel award, Jun, 2012.
 
-\item Travel grant from The Knut and Alice Wallenberg Foundation, Aug,
-    2011, Sweden.
+\item Travel grant from The Knut and Alice Wallenberg Foundation, Aug, 2011, Sweden.
 
-\item Outstanding graduate student, honored by Beijing Municipal Education
-  Commission, Jul, 2007, China.
+\item Outstanding graduate student, honored by Beijing Municipal Education Commission, Jul, 2007, China.
 
 \end{itemize}
 
 
 \section*{Computer Skills}
 \begin{itemize}
-\item  Proficient in \textbf{R} and Python and Matlab.
+\item Proficient in \textbf{R} and Python and Matlab.
 
 \item Skilled in GNU/Linux and have experience on large Linux clusters with Hadoop/Spark.
 
-\item  Good at C/C++.
+\item Good at C/C++.
 \end{itemize}
 
 
@@ -351,26 +322,25 @@ Bayesian methods, Mar 6--10, 2011, Sweden. Invited speaker.
 \begin{itemize}
 \item 2017: The 2017 Beijing Workshop on Forecasting.
 \item 2016: Annual Conference of Chinese Association of Quantitative Economics.
-\item 2014: Executive secretary of International Symposium on Financial Engineering and
-Risk Management 2014.
+\item 2014: Executive secretary of International Symposium on Financial Engineering and Risk Management 2014.
 
 \item 2013: The Swedish Research Students Conference in Statistics.
-\item  2013:  2012–2013, PhD Study Group, Department of Statistics, Stockholm University.
+\item 2013: 2012–2013, PhD Study Group, Department of Statistics, Stockholm University.
 \end{itemize}
 
 \section*{Referee Work}
 \begin{itemize}
 \item \emph{Pattern Recognition}
 \item \emph{Neurocomputing}
-\item  \emph{Journal of Business and Economics Statistics}
-\item  \emph{International Journal of Forecasting}
-\item  \emph{Computational Statistics and Data Analysis}
-\item  \emph{Journal of Statistical Computation and Simulation}
-\item  \emph{Australian \& New Zealand Journal of Statistics}
-\item  \emph{Journal of Official Statistics}
-\item  \emph{Quantitative Finance}
-\item  \emph{Information Sciences}
-\item  \emph{Studies in Nonlinear Dynamics \& Econometrics}
+\item \emph{Journal of Business and Economics Statistics}
+\item \emph{International Journal of Forecasting}
+\item \emph{Computational Statistics and Data Analysis}
+\item \emph{Journal of Statistical Computation and Simulation}
+\item \emph{Australian \& New Zealand Journal of Statistics}
+\item \emph{Journal of Official Statistics}
+\item \emph{Quantitative Finance}
+\item \emph{Information Sciences}
+\item \emph{Studies in Nonlinear Dynamics \& Econometrics}
 
 \end{itemize}
 
@@ -387,15 +357,11 @@ Risk Management 2014.
 
 % \section*{References}
 % \begin{itemize}
-% \item Prof. Mattias Villani, Division of Statistics and Machine Learning, Department of
-%   Computer and Information Science, Linköping University, SE-581 83 Linköping,
-%   Sweden. Email: \url{mattias.villani@liu.se}.
+% \item Prof. Mattias Villani, Division of Statistics and Machine Learning, Department of % Computer and Information Science, Linköping University, SE-581 83 Linköping, % Sweden. Email: \url{mattias.villani@liu.se}.
 
-% \item Prof. Fan Yang Wallentin, Department of Statistics, Uppsala
-%   University, SE-751 20 Uppsala, Sweden. Email: \url{fan.yang@statistik.uu.se}.
+% \item Prof. Fan Yang Wallentin, Department of Statistics, Uppsala % University, SE-751 20 Uppsala, Sweden. Email: \url{fan.yang@statistik.uu.se}.
 
-% \item Prof. Robert Kohn, Australian School of Business, University of New
-%   South Wales, UNSW, Sydney 2052, Australia. Email: \url{r.kohn@unsw.edu.au}.
+% \item Prof. Robert Kohn, Australian School of Business, University of New % South Wales, UNSW, Sydney 2052, Australia. Email: \url{r.kohn@unsw.edu.au}.
 
 % \end{itemize}
 

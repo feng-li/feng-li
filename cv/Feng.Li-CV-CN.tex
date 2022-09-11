@@ -1,74 +1,76 @@
-\documentclass[twoside,a4paper,10pt]{amsart}
+\documentclass[twoside,a4paper,10.5pt]{article}
 
-%%%%%%%%%%%%%%%%%% Non-Latin Languages Support %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Fonts
 \usepackage[fontset=adobe]{ctex}
-\usepackage{fontspec} %% XeLaTeX and LuaLaTeX only
-%% \setmainfont{Times New Roman}
-% \usepackage{newtxtext}
-% \usepackage{newtxmath}
-\usepackage{unicode-math}
-\setmainfont{TeX Gyre Termes}
-\setmathfont{TeX Gyre Termes Math}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setmainfont{Garamond Premier Pro}
+% \setmainfont{Adobe Garamond Pro}
+\usepackage{fontawesome}
 
+%% Geometry
 \usepackage[twoside]{geometry}
 \geometry{lmargin=0.5in,rmargin=0.5in,tmargin=1in,bmargin=1in}
 \usepackage{setspace}
 \setstretch{1.25}
 
-\usepackage{enumitem}
-\setlist[enumerate,itemize]{leftmargin=\parindent}% Indented paragraphs within lists
-
 %% BibLaTeX
-\usepackage[backend=biber, style=authoryear, sorting=ydnt, %bibstyle=numeric, %dashed=none,
-maxcitenames=2, maxbibnames=99, giveninits=true, hyperref=true,
+\usepackage[backend=biber, style=authoryear, sorting=ydnt, url=false, dashed=none,
+maxcitenames=2, maxbibnames=99, giveninits=false, hyperref=true,
 natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{%
   \printtext{\bibstring{in}\intitlepunct}}}
-\DeclareNameAlias{sortname}{family-given}
+\DeclareNameAlias{sortname}{given-family}
 
-\defbibenvironment{bibliography}{\begin{enumerate}[label={[\arabic*]}]} {\end{enumerate}} {\item}
-\renewcommand*\finalnamedelim{\addspace\&\space} % replace and with &
+% replace and with &
+\renewcommand*\finalnamedelim{\addspace\&\space}
+
+% Number with brackets, bold italic for journal names
+\DeclareFieldFormat[article]{number}{(#1)}
+\DeclareFieldFormat{journaltitle}{\mkbibbold{\mkbibitalic{#1}}}
+\DeclareFieldFormat{booktitle}{\mkbibbold{\mkbibitalic{#1}}}
+
+% Reverse enumerated numbers to bibliography and keep the default sorting order.
+\usepackage{etaremune}
+\defbibenvironment{bibliography}{\begin{etaremune}[itemsep=1ex,parsep=0pt]} {\end{etaremune}} {\item}
+\renewcommand{\labelenumi}{[\theenumi]}
+
 \addbibresource{publications-feng.bib}
 
-% to highlight my name
-\DeclareSourcemap{
-  \maps[datatype=bibtex]{
-    \map{
-      \step[fieldsource=author,
-      match=Li,
-      final]
-      \step[fieldset=keywords, fieldvalue=li]
-    }
-  }
-}
-\renewcommand*{\mkbibnamegiven}[1]{%
-  \ifitemannotation{highlight}
-  {\textbf{#1}}
-  {#1}}
-\renewcommand*{\mkbibnamefamily}[1]{%
-  \ifitemannotation{highlight}
-  {\textbf{#1}}
-  {#1}}
 
+%% Highlight certain author name
+\usepackage{xpatch}
+\makeatletter
+\newbibmacro*{name:bold}[2]{%
+  \edef\blx@tmp@name{\expandonce#1, \expandonce#2}%
+  \def\do##1{\ifdefstring{\blx@tmp@name}{##1}{\bfseries\listbreak}{}}%
+  \dolistloop{\boldnames}}
+\newcommand*{\boldnames}{}
+\makeatother
+\xpretobibmacro{name:family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:given-family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:family-given}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}
+\xapptobibmacro{name:family}{\endgroup}{}{}
+\xapptobibmacro{name:given-family}{\endgroup}{}{}
+\xapptobibmacro{name:family-given}{\endgroup}{}{}
+\xapptobibmacro{name:delim}{\endgroup}{}{}
 
+% List your own name variants that are to be highlighted
+\forcsvlist{\listadd\boldnames}
+{{Li, Feng}, {Li, F.}}
 
 %% Spacing
+\usepackage{enumitem}
+\setlist[enumerate,itemize]{nosep,listparindent=\parindent,leftmargin=2em}% Indented paragraphs within lists
+
 \usepackage[compact,raggedright]{titlesec}
-%\usepackage[compact]{titlesec}
 \titlespacing{\section}{0pt}{0ex}{0ex}
 \titlespacing{\subsection}{0pt}{0ex}{0ex}
 \titlespacing{\subsubsection}{0pt}{0ex}{0ex}
-\setlength{\parskip}{0cm}
+\setlength{\parskip}{.0em}
 \setlength{\parindent}{1em}
 
 \usepackage{booktabs}
-\usepackage{bm}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amstext}
-\usepackage{fontawesome}
 \usepackage{graphicx}
 \usepackage[colorlinks=true]{hyperref}
 \hypersetup
@@ -78,15 +80,6 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
   pdftitle={Feng Li, Curriculum Vitae; 李丰 个人简历},
   pdfkeywords={Feng Li, 李丰, Stockholm University, Statistics, CV, Resume, http://feng.li/}
 }
-
-%% Fonts
-% \usepackage[garamond]{mathdesign}
-% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ } % Bug in fontspec
-% \usepackage{inconsolata}
-
-
-%% Fancy symbols
-\usepackage{marvosym}
 
 %% Fancy header and footer
 \usepackage{fancyhdr}
@@ -102,7 +95,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \fancypagestyle{plain}{%
   \fancyhf{} % clear all header and footer fields
-  \fancyfoot[LO,RE]{\vspace{0.5cm}\tiny\emph{修改日期： \today \\最新个人简历请访问}  \url{https://feng.li/}}
+  \fancyfoot[LO,RE]{\vspace{0.5cm}\tiny\emph{\today 更新。最新个人简历请访问}  \url{https://feng.li/}}
   \fancyfoot[C]{}
   \fancyfoot[LE,RO]{\vspace{0.5cm}\thepage}
   \renewcommand{\headrulewidth}{0pt}
@@ -134,10 +127,10 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \section*{联系方式}
 
 \begin{tabular}{ l l |  l  l l l}
-  北京市昌平区沙河高教园   &  & 邮　箱 & \href{mailto:feng.li@cufe.edu.cn}{\url{feng.li@cufe.edu.cn}} \\
-  中央财经大学（沙河校区） &  & 主　页 & \url{https://feng.li}                                        \\
-  统计与数学学院           &  & 实验室 & \url{https://kllab.org}                                      \\
-  邮编：102206             &  & 电　话 & \texttt{+86-(0)10-6117-6189}                                 \\
+  北京市昌平区沙河高教园   &  & \faEnvelopeO & \href{mailto:feng.li@cufe.edu.cn}{\url{feng.li@cufe.edu.cn}} \\
+  中央财经大学（沙河校区） &  & \faHome & \url{https://feng.li}                                        \\
+  统计与数学学院           &  & \faGroup & \url{https://kllab.org}                                      \\
+  邮编：102206             &  & \faPhone & \texttt{+86-(0)10-6117-6189}                                 \\
 \end{tabular}
 
 \section*{教育背景}
@@ -163,17 +156,15 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \item 2020年国家自然科学基金面上项目：\emph{中医药临床疗效评价中基于目标值法的单臂临床研究方法体
     系的构建}，主要参与人，在研。
 
-\item 国家自然科学基金青年项目：\emph{贝叶斯柔性密度方法及其在高维金融数据中的应用}，项目负责人，
+\item 2015年国家自然科学基金青年项目：\emph{贝叶斯柔性密度方法及其在高维金融数据中的应用}，项目负责人，
   结项。
 
 \item 2014年教育部人文社科研究项目：\emph{贝叶斯弹性高维密度方法在复杂数据的研
     究}，项目负责人，结项。
 
-\item 2014年国家自然科学基金青年项目： \emph{复发事件的均值模型和纵向数据的分位数回归的统计
-    与推断}，主要参加人，结项。
+\item 2014年国家自然科学基金青年项目： \emph{复发事件的均值模型和纵向数据的分位数回归的统计与推断}，主要参加人，结项。
 
-\item 2014年国家自然科学基金青年项目： \emph{公司财务困境预警模型研究：基于财务波动信息的区
-    间数据刻画方法}，主要参加人，结项。
+\item 2014年国家自然科学基金青年项目： \emph{公司财务困境预警模型研究：基于财务波动信息的区间数据刻画方法}，主要参加人，结项。
 
 \item 2014年国家自然科学基金面上项目：\emph{货币总量转向信用总量：全球虚拟经济与实体经济背
     离机理与宏观政策应对}，主要参加人，结项。
@@ -182,20 +173,22 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 
 \section*{学术发表}
-（\emph{标$*$为通讯作者，$\#$为共同第一作者} ）
 \begin{refsection}
 
+\nocite{li2022bayesian_ijf}
+\nocite{wang2022escalator_safety}
+\nocite{wang2022distributed_ijf}
 \nocite{anderer2022forecasting_ijf}
 \nocite{janeway2021clinical_jad}
 \nocite{petropoulos2021forecasting_ijf}
 \nocite{kang2022forecast_ejor}
 \nocite{pan2021note_jbes}
-\nocite{talagala2021fformpp_ijf}
+\nocite{talagala2022fformpp_ijf}
 \nocite{zhu2021least_jcgs}
-\nocite{wang2021uncertainty_jors}
+\nocite{wang2022uncertainty_jors}
 \nocite{kang2021deja_jbr}
 \nocite{hao2020bilinear_ced}
-\nocite{li2020forecasting_expert}
+\nocite{li2020forecasting_eswa}
 \nocite{kang2020gratis_sam}
 \nocite{kang2020statscompcn}
 \nocite{li2020fppcn}
@@ -209,6 +202,7 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 \nocite{li2013efficient_sjs}
 \nocite{li2011modeling_mixtures}
 \nocite{li2010flexible_jspi}
+
 \printbibliography[heading=none]
 \end{refsection}
 
