@@ -13,13 +13,26 @@
 \setstretch{1.25}
 
 %% BibLaTeX
-\usepackage[backend=biber, style=authoryear, sorting=ydnt, url=false, dashed=none,
-maxcitenames=2, maxbibnames=99, giveninits=false, hyperref=true,
-natbib=true,uniquelist=false, uniquename=false]{biblatex}
+\usepackage[backend=biber, style=authoryear, sorting=ydnt, dashed=none, maxcitenames=2, maxbibnames=99, giveninits=false, hyperref=true, alldates=year, natbib=true, uniquelist=false, uniquename=false]{biblatex}
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{%
   \printtext{\bibstring{in}\intitlepunct}}}
 \DeclareNameAlias{sortname}{given-family}
+
+% Add annotation entry.
+\renewbibmacro*{finentry}{%
+  \iffieldundef{annotation}
+    {\finentry}{\printfield{annotation} \finentry}}
+  % Remove unused entries
+
+\AtEveryBibitem{%
+  % \clearfield{addendum}%
+  \iffieldundef{doi}{}{\clearfield{url}}% Use url if doi not exist
+  \clearlist{language}%
+  \clearfield{issn}%
+  \clearfield{urlyear}%
+  \clearfield{series}%
+}
 
 % replace and with &
 \renewcommand*\finalnamedelim{\addspace\&\space}
@@ -162,43 +175,42 @@ natbib=true,uniquelist=false, uniquename=false]{biblatex}
 
 \item 2014年\textbf{教育部人文社科研究项目}：\emph{贝叶斯弹性高维密度方法在复杂数据的研究}，项目负责人，结项。
 
-
 \end{itemize}
 
 
 \section*{学术发表}
 \begin{refsection}
 
-\nocite{zhang2023optimal_ejor}
-\nocite{li2023feature_ijpr}
-\nocite{wang2023forecast_ijf}
-\nocite{pan2022note_jbes}
-\nocite{li2022bayesian_ijf}
-\nocite{wang2022escalator_safety}
-\nocite{wang2022distributed_ijf}
-\nocite{anderer2022forecasting_ijf}
-\nocite{janeway2021clinical_jad}
-\nocite{petropoulos2021forecasting_ijf}
-\nocite{kang2022forecast_ejor}
-\nocite{talagala2022fformpp_ijf}
-\nocite{zhu2021least_jcgs}
-\nocite{wang2022uncertainty_jors}
-\nocite{kang2021deja_jbr}
-\nocite{hao2020bilinear_ced}
-\nocite{li2020forecasting_eswa}
-\nocite{kang2020gratis_sam}
-\nocite{kang2020statscompcn}
-\nocite{li2020fppcn}
-\nocite{kalesan2020intersections_jsr}
-\nocite{bailey2019changes_plosone}
-\nocite{li2019credit_cef}
-\nocite{li2018improving_ijf}
-\nocite{pino2018cohort_bmj}
+\nocite{ZhangB2023OptimalReconciliation}
+\nocite{LiL2023FeaturebasedIntermittent}
+\nocite{WangX2022ForecastCombinations}
+\nocite{PanR2022NoteDistributed}
+\nocite{LiL2023BayesianForecast}
+\nocite{WangZ2022EscalatorAccident}
+\nocite{WangX2023DistributedARIMA}
+\nocite{AndererM2022HierarchicalForecasting}
+\nocite{JanewayMG2021ClinicalDiagnostic}
+\nocite{PetropoulosF2022ForecastingTheory}
+\nocite{KangY2022ForecastForecasts}
+\nocite{TalagalaTS2022FFORMPPFeaturebased}
+\nocite{ZhuX2021LeastSquareApproximation}
+\nocite{WangX2022UncertaintyEstimation}
+\nocite{KangY2021DejaVu}
+\nocite{HaoC2020BilinearReduced}
+\nocite{LiX2020ForecastingTime}
+\nocite{KangY2020GRATISGeneRAting}
+\nocite{kang2020statcompcn}
+\nocite{kang2020fppcn}
+\nocite{KalesanB2020IntersectionsFirearm}
+\nocite{BaileyHM2019ChangesPatterns}
+\nocite{LiF2019CreditRisk}
+\nocite{LiF2018ImprovingForecasting}
+\nocite{PinoEC2018CohortProfile}
 \nocite{li2016distributedcn}
-\nocite{li2013bayesian}
-\nocite{li2013efficient_sjs}
-\nocite{li2011modeling_mixtures}
-\nocite{li2010flexible_jspi}
+\nocite{LiF2013BayesianModeling}
+\nocite{LiF2013EfficientBayesian}
+\nocite{LiF2011ModellingConditional}
+\nocite{LiF2010FlexibleModeling}
 
 \printbibliography[heading=none]
 \end{refsection}
