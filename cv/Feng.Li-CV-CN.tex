@@ -23,8 +23,8 @@
 \renewbibmacro*{finentry}{%
   \iffieldundef{annotation}
     {\finentry}{\printfield{annotation} \finentry}}
-  % Remove unused entries
 
+% Remove unused entries
 \AtEveryBibitem{%
   % \clearfield{addendum}%
   \iffieldundef{doi}{}{\clearfield{url}}% Use url if doi not exist
@@ -48,7 +48,7 @@
 \renewcommand{\labelenumi}{[\theenumi]}
 
 \addbibresource{publications-feng.bib}
-
+%\addbibresource{references-feng.bib}
 
 %% Highlight certain author name
 \usepackage{xpatch}
@@ -91,7 +91,7 @@
   pdfauthor={Feng Li, 李丰},
   pdfsubject={Feng Li, Curriculum Vitae; 李丰 个人简历},
   pdftitle={Feng Li, Curriculum Vitae; 李丰 个人简历},
-  pdfkeywords={Feng Li, 李丰, Stockholm University, Statistics, CV, Resume, http://feng.li/}
+  pdfkeywords={Feng Li, 李丰, Central University of Finance and Economics, Statistics, CV, Resume, http://feng.li/}
 }
 
 %% Fancy header and footer
@@ -140,10 +140,10 @@
 \section*{联系方式}
 
 \begin{tabular}{ l l |  l  l l l}
-  北京市昌平区沙河高教园   &  & \faEnvelope & \href{mailto:feng.li@cufe.edu.cn}{\url{feng.li@cufe.edu.cn}} \\
+  北京市昌平区沙河高教园   &  & \faEnvelope & \href{mailto:feng.li@cufe.edu.cn}{feng.li@cufe.edu.cn} \\
   中央财经大学（沙河校区） &  & \faHome & \url{https://feng.li}                                        \\
   统计与数学学院           &  & \faGroup & \url{https://kllab.org}                                      \\
-  邮编：102206             &  & %\faPhone & \texttt{+86-(0)10-6117-6189}                                 \\
+  邮编：102206             &  & \faPhone & +86 138 1066 4288 \faWechat\\
 \end{tabular}
 
 \section*{教育背景}
@@ -180,22 +180,24 @@
 
 \section*{代表性成果}
 \begin{refsection}
+\nocite{HuangY2024LocalInformation}
 \nocite{ZhangB2023OptimalReconciliation}
 \nocite{KangY2022ForecastForecasts}
-\nocite{AndererM2022HierarchicalForecasting}
-\nocite{LiF2018ImprovingForecasting}
+\nocite{ZhuX2021LeastSquareApproximation}
 \nocite{LiX2020ForecastingTime}
+\nocite{LiF2018ImprovingForecasting}
 \printbibliography[heading=none]
 \end{refsection}
 
 
 \section*{学术发表}
 \begin{refsection}
+\nocite{HuangY2024LocalInformation}
+\nocite{LiF2024ForecasterReview}
 \nocite{LiL2023ForecastingLarge}
-\nocite{LiF2023ForecasterReview}
 \nocite{ZhangB2023OptimalReconciliation}
 \nocite{LiL2023FeaturebasedIntermittent}
-\nocite{WangX2022ForecastCombinations}
+\nocite{WangX2023ForecastCombinations}
 \nocite{PanR2022NoteDistributed}
 \nocite{LiL2023BayesianForecast}
 \nocite{WangZ2022EscalatorAccident}
@@ -229,14 +231,31 @@
 
 \section*{软件}
 李丰老师和他的团队开发具有自主产权、适用于海量数据的开源统计和机器学习软件。详情请访问软件仓库 \url{https://github.com/feng-li}。
-% \begin{refsection}
-% \nocite{gratis}
-% \nocite{spark-dlsa}
-% \printbibliography[heading=none]
-% %{\footnotesize (软件更新 \url{https://github.com/feng-li})}
-% \end{refsection}
-% \vspace{6cm}
-\newpage
+
+\centering
+\begin{tabular}{lp{9cm}ccl}
+  \toprule
+  Package   & Description                                                                                                          & Language & Environment & Available On         \\
+  \midrule
+gratis      & Efficient algorithms for generating time series with diverse and controllable characteristics. {\color{red}(Selected in R Task View for Time Series)}. & R        & All         & CRAN, GitHub \\
+febama      & Feature-based Bayesian Forecasting Model Averaging                                                                   & R        & All         & GitHub       \\
+fide        & Feature-based Intermittent DEmand forecasting                                                                        & R        & All         & GitHub       \\
+fuma        & Forecast uncertainty based on model averaging                                                                        & R        & All         & GitHub       \\
+fformpp     & Feature-based FORecast Model Performance Prediction                                                         & R        & All         & GitHub       \\
+dng         & Distribution and Gradients for Skewed Distributions  {\color{red}(Selected in R Task View for Probability Distributions)}                                                                 & R        & All         & CRAN, GitHub \\
+pyhts       & A python package for hierarchical forecasting                                                                        & Python   & All         & GitHub, PyPi \\
+dlsa        & Distributed Least Squares Approximation implemented with Apache Spark                                                & Python   & Spark       & GitHub       \\
+darima      & Distributed ARIMA models implemented with Apache Spark                                                               & Python   & Spark       & GitHub       \\
+dqr         & Distributed Quantile Regression by Pilot Sampling and One-Step Updating                                              & Python   & Spark       & GitHub       \\
+cdcopula    & Covariate-dependent copula models                                                                                    & R        & All         & GitHub       \\
+movingknots & Efficient Bayesian Multivariate Surface Regression                                                                   & R        & All         & GitHub       \\
+flutils     & A collection of R functions which is required from my other packages                                                 & R        & All         & GitHub       \\
+GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtures of Asymmetric Student T Densities               & Matlab   & All         & GitHub       \\
+  \bottomrule
+\end{tabular}
+%}
+
+
 
 \section*{讲授课程}
 （\emph{标*为全英文授课。获取课程讲义请访问} \url{http://feng.li/teaching/}）
@@ -249,7 +268,7 @@
   \footnotesize{（中央财经大学精品实验课）} &               &                                &                  \\
   \textbf{数据科学工具}                     & 本科生        & 中央财经大学                   & 2018 --          \\
   \footnotesize{（中央财经大学核心通识课）} &               &                                &                  \\
-  \textbf{Python程序设计}                   & MBA 研究生        & 中央财经大学商学院 & 2022--           \\
+  \textbf{Python程序设计与数据挖掘}                   & MBA 研究生        & 中央财经大学商学院 & 2022--           \\
                      & 研究生        & 中央财经大学粤港澳大湾区研究院 & 2021--           \\
   \textbf{大数据分布式计算}                 & 本科生/研究生 & 中央财经大学                   & 2020秋 --        \\
                                             & 研究生        & 北京大学光华管理学院           & 2020春 --        \\
@@ -418,7 +437,7 @@
 
 \section*{担任期刊审稿}
 
-担任统计学、数据科学、医学统计、管理学等领域20余种国际期刊的匿名评审，期刊评审记录详见 \url{https://orcid.org/0000-0002-4248-9778}。以下列出部分常审稿期刊列表。
+担任统计学、数据科学、管理学等领域30余种国际期刊的匿名评审，期刊评审记录详见 \url{https://orcid.org/0000-0002-4248-9778}。以下列出部分常审稿期刊列表。
 
 \begin{itemize}
 \item \emph{Omega - The International Journal of Management Science}
@@ -439,7 +458,7 @@
 \begin{tabular}{l p{0.8\textwidth} l}
   2023--     & 北京统计学会理事                 \\
   2023--     & 中国土木工程学会风险管理分会理事 \\
-  2018--     & 全国工业统计学教学研究会常务理事、中国青年统计学家协会副秘书长 \\
+  2018--2013 & 全国工业统计学教学研究会常务理事、中国青年统计学家协会副秘书长 \\
   2014--     & 中国统计教育学会高等教育分会副秘书长。                         \\
   2013--2014 & 2014年金融工程与风险管理国际研讨会执行秘书。                   \\
 

@@ -10,7 +10,7 @@
 \usepackage[twoside]{geometry}
 \geometry{lmargin=0.5in,rmargin=0.5in,tmargin=1in,bmargin=1in}
 \usepackage{setspace}
-\setstretch{1.25}
+\setstretch{1.1}
 
 %% BibLaTeX
 \usepackage[backend=biber, style=authoryear, sorting=ydnt, dashed=none, maxcitenames=2, maxbibnames=99, giveninits=false, hyperref=true, alldates=year,  natbib=true,uniquelist=false, uniquename=false]{biblatex}
@@ -42,6 +42,7 @@
 \renewcommand{\labelenumi}{[\theenumi]}
 
 \addbibresource{publications-feng.bib}
+\addbibresource{references-feng.bib}
 
 
 %% Highlight certain author name
@@ -64,13 +65,13 @@
 
 % List your name variants that are to be highlighted
 \forcsvlist{\listadd\boldnames}
-{{Li, Feng}, {Li, F.}}
+{{Li, Feng}, {Li, F.} {Li, F}}
 
 %% Spacing
 \usepackage{enumitem}
 \setlist[enumerate,itemize]{nosep,listparindent=\parindent,leftmargin=2em}% Indented paragraphs within lists
 
-\usepackage[compact,raggedright]{titlesec}
+\usepackage[compact,raggedright,small]{titlesec}
 \titlespacing{\section}{0pt}{0ex}{0ex}
 \titlespacing{\subsection}{0pt}{0ex}{0ex}
 \titlespacing{\subsubsection}{0pt}{0ex}{0ex}
@@ -117,40 +118,44 @@
 \hrule
 \section*{Personal Information}
 \begin{tabular}{l p{4cm} l  l l}
-  Given name/Surname:                      & Feng/Li               & Name in Chinese: & 李丰                                       \\
-  Place of birth:                          & Inner Mongolia, China & Nationality:     & China                                      \\
+  Given name/Surname:                      & Feng/Li               & Name in Chinese: & \bf{李丰}                                  \\
+  Place of birth:                          & Inner Mongolia, China & Nationality:     & China                                    \\
   Gender:                                  & Male                  & Languages:       & English, Chinese                           \\
   \includegraphics[height=1em]{orcid-logo} & \multicolumn{3}{l}{\href{https://orcid.org/0000-0002-4248-9778}{0000-0002-4248-9778}} \\
 \end{tabular}
 
-\section*{Work Information}
-
-% \begin{tabular}{ l l |  l  l }
-%        &  & \faEnvelope   & \href{mailto:feng.li@cufe.edu.cn}{feng.li@cufe.edu.cn} \\
-%   School of Statistics and Mathematics         &  & \faHome & \url{https://feng.li}                                                        \\
-%   Central University of Finance and Economics  &  & \faGroup      & \url{https://kllab.org}                                \\
-%   Shahe University Park, Beijing 102206, China &  &      \\
-% \end{tabular}
+\section*{Positions}
 
 \begin{tabular}{ll}
-  \textbf{Associate Professor}            & School of Statistics and Mathematics, Central University of Finance and Economics, Beijing 102206, China  \\
-  %&\textbf{Assistant Professor} & \\
-  \textbf{Associate Dean} & (June 2016 -- December 2022)  \\
+  \textbf{Associate Professor} & School of Statistics and Mathematics, Central University of Finance and Economics, Beijing 102206, China \\
+  \textbf{Associate Dean}      & (June 2016 -- December 2022)                                                                             \\
 \end{tabular}
+
+
+\section*{Contacts}
+
+\begin{tabular}{ l l |  l  l l l}
+  School of Statistics and Mathematics       &  & \faEnvelope & \href{mailto:feng.li@cufe.edu.cn}{\url{feng.li@cufe.edu.cn}} \\
+ Central University of Finance and Economics &  & \faHome     & \url{https://feng.li}                                        \\
+  Shahe University Park                      &  & \faGroup    & \url{https://kllab.org}                                      \\
+ Beijing 102206, China                       &  & \faPhone   & +86 138 1066 4288  \faWechat\\
+\end{tabular}
+
+
 \section*{Education}
 
 \begin{tabular}{ l  p{0.75\textwidth} l}
-  2008--2013 & \textbf{Ph.D. of Statistics}, Stockholm University, Sweden. \\
-             & Supervisor: Prof. Mattias Villani.                          \\
+  2008--2013 & \textbf{Ph.D., Statistics}, Stockholm University, Sweden. \\
+             & Supervisor: Prof. Mattias Villani.                        \\
 
              & Thesis: \emph{Bayesian Modeling of Conditional Densities}. \\
-             & (won the 2014 Cramér Prize for the best Ph.D. thesis in Statistics and Mathematical Statistics, awarded by the Swedish Statistical Society) \\
-             & Thesis opponent: Prof. Sylvia Frühwirth-Schnatter.               \\
+             & (won the 2014 Cramér Prize for the best Ph.D. thesis in Statistics and Mathematical Statistics, awarded by the Swedish Statistics Association) \\
+             & Thesis opponent: Prof. Sylvia Frühwirth-Schnatter, WU Vienna University of Economics and Business               \\
              & Assistant supervisor: Prof. Daniel Thorburn.                     \\
-  2007--2008 & \textbf{Master of Statistics}, Darlarna
+  2007--2008 & \textbf{Master, Statistics}, Darlarna
                University, Sweden.                                             \\
 
- 2003--2007 & \textbf{Bachelor of Statistics}, Renmin University of China. \\
+ 2003--2007 & \textbf{Bachelor, Statistics}, Renmin University of China. \\
 \end{tabular}
 
 \section*{Research Interests}
@@ -178,12 +183,12 @@ Bayesian Inference $\circ$ Econometrics \& Forecasting $\circ$ Machine Learning 
   \url{https://scholar.google.com/citations?user=IN2QMXYAAAAJ})
 
 \begin{refsection}
-
+\nocite{HuangY2024LocalInformation}
+\nocite{LiF2024ForecasterReview}
 \nocite{LiL2023ForecastingLarge}
-\nocite{LiF2023ForecasterReview}
 \nocite{ZhangB2023OptimalReconciliation}
 \nocite{LiL2023FeaturebasedIntermittent}
-\nocite{WangX2022ForecastCombinations}
+\nocite{WangX2023ForecastCombinations}
 \nocite{PanR2022NoteDistributed}
 \nocite{LiL2023BayesianForecast}
 \nocite{WangZ2022EscalatorAccident}
@@ -217,7 +222,32 @@ Bayesian Inference $\circ$ Econometrics \& Forecasting $\circ$ Machine Learning 
 \end{refsection}
 
 \section*{Software}
-I develop open-source statistical and machine learning software for large-scale data running on the Apache Spark distributed computing platform. Detailed software information is available at \url{https://github.com/feng-li}.
+I develop open-source statistical and machine learning software for large-scale data running on the Apache Spark distributed computing platform. Detailed software information is available at my code repository \url{https://github.com/feng-li}.
+
+%\resizebox{\textwidth}{!}{
+\centering
+\begin{tabular}{lp{9cm}ccl}
+  \toprule
+  Package   & Description                                                                                                          & Language & Environment & Available On         \\
+  \midrule
+gratis      & Efficient algorithms for generating time series with diverse and controllable characteristics. {\color{red}(Selected in R Task View for Time Series)}. & R        & All         & CRAN, GitHub \\
+febama      & Feature-based Bayesian Forecasting Model Averaging                                                                   & R        & All         & GitHub       \\
+fide        & Feature-based Intermittent DEmand forecasting                                                                        & R        & All         & GitHub       \\
+fuma        & Forecast uncertainty based on model averaging                                                                        & R        & All         & GitHub       \\
+fformpp     & Feature-based FORecast Model Performance Prediction                                                         & R        & All         & GitHub       \\
+dng         & Distribution and Gradients for Skewed Distributions  {\color{red}(Selected in R Task View for Probability Distributions)}                                                                 & R        & All         & CRAN, GitHub \\
+pyhts       & A python package for hierarchical forecasting                                                                        & Python   & All         & GitHub, PyPi \\
+dlsa        & Distributed Least Squares Approximation implemented with Apache Spark                                                & Python   & Spark       & GitHub       \\
+darima      & Distributed ARIMA models implemented with Apache Spark                                                               & Python   & Spark       & GitHub       \\
+dqr         & Distributed Quantile Regression by Pilot Sampling and One-Step Updating                                              & Python   & Spark       & GitHub       \\
+cdcopula    & Covariate-dependent copula models                                                                                    & R        & All         & GitHub       \\
+movingknots & Efficient Bayesian Multivariate Surface Regression                                                                   & R        & All         & GitHub       \\
+flutils     & A collection of R functions which is required from my other packages                                                 & R        & All         & GitHub       \\
+GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtures of Asymmetric Student T Densities               & Matlab   & All         & GitHub       \\
+  \bottomrule
+\end{tabular}
+%}
+
 % \begin{refsection}
 % \nocite{gratis}
 % \nocite{spark-dlsa}
@@ -226,26 +256,31 @@ I develop open-source statistical and machine learning software for large-scale 
 
 \section*{Teaching}
 \begin{center}
-  \begin{tabular}{p{6.5cm}lll}
+  \begin{tabular}{p{7.5cm}llll}
     \toprule
-  {Statistical Computing}                & U    & CUFE          & 2014--     \\
-  {Distributed Statistical Computing}    & G    & CUFE          & 2014--     \\
-                                         & UG   & CUFE          & 2020--     \\
-                                         & G    & PKU           & 2020--     \\
-                                         & G    & CUEB          & 2020--2021 \\
-                                         & G    & RUC           & 2014--2019 \\
-  {Distributed Statistical Computing II} & UG   & CUFE          & 2021--     \\
-  {Tools for Data Science}               & U    & CUFE          & 2019--     \\
-  {Statistics Case Studies}              & G    & CUFE          & 2017--2018 \\
-  {Bayesian Statistics}$^*$              & G    & SU, CUFE, CNU & 2013, 2017 \\
-  {Python for Big Data}                  & G    & CUFE          & 2015,2021  \\
-  {Programming with R}$^*$               & U, G & LIU           & 2012       \\
-  {Statistical Software}                 & U    & CUFE          & 2014       \\
-  {Econometrics}$^*$                     & U    & CUFE          & 2013--2015 \\
-  {Academic English in Statistics}$^*$   & G    & CUFE          & 2013--2016 \\
-  {Regression Analysis}$^*$              & U    & SU            & 2008--2013 \\
-  {Time Series Analysis}                 & G    & CUFE          & 2015--2016 \\
-  {Time Series Analysis}$^*$             & U    & SU            & 2008--2013 \\
+    Course                                  & Level & Credit  &Place         & Year       \\
+    \midrule
+    {Statistical Computing}                 & U     & 3  &CUFE          & 2014--     \\
+    {Distributed Statistical Computing: I}  & G     & 3  &CUFE          & 2014--     \\
+                                            & U     & 3  &CUFE          & 2020--     \\
+                                            & BA     & 2  &PKU           & 2020--     \\
+                                            & G     & 3  &CUEB          & 2020--2021 \\
+                                            & G     & 3  &RUC           & 2014--2019 \\
+    {Distributed Statistical Computing: II} & U     & 3  &CUFE          & 2021--     \\
+    {Python and Data Mining}   & MBA   & 2  &CUFE          & 2021--     \\
+                                            & G     & 2  &CUFE          & 2015       \\
+    {Tools for Data Science}                & U     & 2  &CUFE          & 2019--     \\
+    {Statistics Case Studies}               & G     & 3  &CUFE          & 2017--2018 \\
+    {Bayesian Statistics}$^*$               & G     & 2  &CNU           & 2017       \\
+                                            & G     & 2  &CUFE          & 2013       \\
+                                            & G     & 2  &SU            & 2013       \\
+    {Programming with R}$^*$                & U     & 2  &LIU           & 2012       \\
+    {Statistical Software}                  & U     & 2  &CUFE          & 2014       \\
+    {Econometrics}$^*$                      & U     & 3  &CUFE          & 2013--2015 \\
+    {Academic English in Statistics}$^*$    & G     & 2  &CUFE          & 2013--2016 \\
+    {Time Series Analysis}$^*$             & G     & 2  &CUFE          & 2015--2016 \\
+                                            & U     & 2  &SU            & 2008--2013 \\
+    {Regression Analysis}$^*$               & U     & 2  &SU            & 2008--2013 \\
     \bottomrule
   \end{tabular}
 \end{center}
@@ -255,6 +290,10 @@ I develop open-source statistical and machine learning software for large-scale 
 
 \section*{Recent Presentations and Invited Talks}
 \begin{itemize}
+
+\item The 2023 ICSA China Conference, June 30 – July 3, 2023, Sichuan, China.
+
+\item The 41st International Symposium on Forecasting, 27-28 June, 2021.
 
 \item The 2021 World Meeting of the International Society for Bayesian Analysis, 2 July, 2021.
 
@@ -336,10 +375,8 @@ I develop open-source statistical and machine learning software for large-scale 
 
 \section*{Computer Skills}
 \begin{itemize}
+\item Skilled in GNU/Linux and have rich programming experience on large Linux CPU/GPU clusters with Hadoop/Spark.
 \item Proficient in \textbf{R} and Python and Matlab.
-
-\item Skilled in GNU/Linux and have experience on large Linux clusters with Hadoop/Spark.
-
 \item Good at C/C++.
 \end{itemize}
 
@@ -354,9 +391,12 @@ I develop open-source statistical and machine learning software for large-scale 
 \item 2013: 2012–2013, PhD. Study Group, Department of Statistics, Stockholm University.
 \end{itemize}
 
-\section*{Referee Work}
+\section*{Academic Services}
 
-Peer reviewed for over 20 high-ranked journals in statistics, data science, medical statistics, and management. Full review records are available at \url{https://orcid.org/0000-0002-4248-9778}. Selected journals list below.
+\begin{itemize}
+\item Mentor, the United Nations Big Data Hackathon, 2022--2023.
+
+\item Peer reviewed for over 30 high-ranked journals in statistics, data science, medical statistics, and management. Full review records are available at \url{https://orcid.org/0000-0002-4248-9778}. Selected journals list below.
 
 \begin{itemize}
 \item \emph{Omega - The International Journal of Management Science}
@@ -372,6 +412,7 @@ Peer reviewed for over 20 high-ranked journals in statistics, data science, medi
 \item  \emph{Information Sciences}
 % \item  \emph{Studies in Nonlinear Dynamics \& Econometrics}
 \end{itemize}
+\end{itemize}
 
 \section*{Academic Visiting}
 
@@ -381,6 +422,14 @@ Peer reviewed for over 20 high-ranked journals in statistics, data science, medi
 \item 2011 Sep – 2012 March, Linköping University, Sweden
 \item 2011 June, University of Southampton, UK
 \item 2009 May, Erasmus University Rotterdam, The Netherlands
+\end{itemize}
+
+\section*{Society Memberships}
+
+\begin{itemize}
+\item Member, International Institute of Forecasters
+\item Member, American Statistical Association
+\item Member, International Society for Bayesian Analysis
 \end{itemize}
 
 % \section*{References}
