@@ -32,7 +32,15 @@
 \renewcommand*\finalnamedelim{\addspace\&\space}
 
 % Number with brackets, bold italic for journal names
-\DeclareFieldFormat[article]{number}{(#1)}
+% volume (number) style
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+%  \setunit*{\adddot}% DELETED
+  \setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
 \DeclareFieldFormat{journaltitle}{\mkbibbold{\mkbibitalic{#1}}}
 \DeclareFieldFormat{booktitle}{\mkbibbold{\mkbibitalic{#1}}}
 
@@ -42,8 +50,7 @@
 \renewcommand{\labelenumi}{[\theenumi]}
 
 \addbibresource{publications-feng.bib}
-\addbibresource{references-feng.bib}
-
+% \addbibresource{references-feng.bib}
 
 %% Highlight certain author name
 \usepackage{xpatch}
@@ -121,7 +128,7 @@
   Given name/Surname:                      & Feng/Li               & Name in Chinese: & \bf{李丰}                                  \\
   Place of birth:                          & Inner Mongolia, China & Nationality:     & China                                    \\
   Gender:                                  & Male                  & Languages:       & English, Chinese                           \\
-  \includegraphics[height=1em]{orcid-logo} & \multicolumn{3}{l}{\href{https://orcid.org/0000-0002-4248-9778}{0000-0002-4248-9778}} \\
+  \includegraphics[height=1em]{orcid-logo}~~{\href{https://orcid.org/0000-0002-4248-9778}{0000-0002-4248-9778}}& \multicolumn{3}{l}{\faGoogle~~  \url{https://scholar.google.com/citations?user=IN2QMXYAAAAJ}}& \\
 \end{tabular}
 
 \section*{Positions}
@@ -138,7 +145,7 @@
   School of Statistics and Mathematics       &  & \faEnvelope & \href{mailto:feng.li@cufe.edu.cn}{\url{feng.li@cufe.edu.cn}} \\
  Central University of Finance and Economics &  & \faHome     & \url{https://feng.li}                                        \\
   Shahe University Park                      &  & \faGroup    & \url{https://kllab.org}                                      \\
- Beijing 102206, China                       &  & \faPhone   & +86 138 1066 4288  \faWechat\\
+ Beijing 102206, China                       &  & \faPhone   & +86 138 1066 4288  \\
 \end{tabular}
 
 
@@ -184,6 +191,8 @@ Bayesian Inference $\circ$ Econometrics \& Forecasting $\circ$ Machine Learning 
 
 \begin{refsection}
 \nocite{HuangY2024LocalInformation}
+\nocite{RenY2023InfiniteForecasta}
+\nocite{ZhangG2023ProbabilisticForecast}
 \nocite{LiF2024ForecasterReview}
 \nocite{LiL2023ForecastingLarge}
 \nocite{ZhangB2023OptimalReconciliation}
@@ -218,9 +227,9 @@ Bayesian Inference $\circ$ Econometrics \& Forecasting $\circ$ Machine Learning 
 \nocite{LiF2010FlexibleModeling}
 
 \printbibliography[heading=none]
-
 \end{refsection}
 
+\newpage
 \section*{Software}
 I develop open-source statistical and machine learning software for large-scale data running on the Apache Spark distributed computing platform. Detailed software information is available at my code repository \url{https://github.com/feng-li}.
 
@@ -291,15 +300,17 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 \section*{Recent Presentations and Invited Talks}
 \begin{itemize}
 
+\item The 23rd IEEE International Conference on Data Mining, December 1 - 4, 2023, Shanghai, China.
+
+\item The 9th International Forum on Statistics (RUC IFS 2023), July 14-15, 2023, Beijing, China.
+
 \item The 2023 ICSA China Conference, June 30 – July 3, 2023, Sichuan, China.
 
 \item The 41st International Symposium on Forecasting, 27-28 June, 2021.
 
-\item The 2021 World Meeting of the International Society for Bayesian Analysis, 2 July, 2021.
+\item The 2021 World Meeting of the International Society for Bayesian Analysis, July 2, 2021.
 
-\item The 40th International Symposium on Forecasting, Virtual. 28 July, 2021.
-
-\item The 40th International Symposium on Forecasting, Virtual. 26 October, 2020.
+\item The 40th International Symposium on Forecasting, Virtual. October 26, 2020.
 
 \item Twelfth International Conference on Monte Carlo Methods and Application (MCM 2019), Sydney, Australia, from July 8 to 12, 2019.
 

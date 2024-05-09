@@ -38,7 +38,15 @@
 \renewcommand*\finalnamedelim{\addspace\&\space}
 
 % Number with brackets, bold italic for journal names
-\DeclareFieldFormat[article]{number}{(#1)}
+% volume (number) style
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+%  \setunit*{\adddot}% DELETED
+  \setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
 \DeclareFieldFormat{journaltitle}{\mkbibbold{\mkbibitalic{#1}}}
 \DeclareFieldFormat{booktitle}{\mkbibbold{\mkbibitalic{#1}}}
 
@@ -193,6 +201,8 @@
 \section*{学术发表}
 \begin{refsection}
 \nocite{HuangY2024LocalInformation}
+\nocite{RenY2023InfiniteForecasta}
+\nocite{ZhangG2023ProbabilisticForecast}
 \nocite{LiF2024ForecasterReview}
 \nocite{LiL2023ForecastingLarge}
 \nocite{ZhangB2023OptimalReconciliation}
@@ -229,6 +239,7 @@
 \printbibliography[heading=none]
 \end{refsection}
 
+\newpage
 \section*{软件}
 李丰老师和他的团队开发具有自主产权、适用于海量数据的开源统计和机器学习软件。详情请访问软件仓库 \url{https://github.com/feng-li}。
 
@@ -256,7 +267,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 %}
 
 
-
+\newpage
 \section*{讲授课程}
 （\emph{标*为全英文授课。获取课程讲义请访问} \url{http://feng.li/teaching/}）
 
@@ -318,6 +329,12 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 \emph{（仅列出部分会议发言）}
 
 \begin{itemize}
+
+\item The 23rd IEEE International Conference on Data Mining, December 1 - 4, 2023, Shanghai, China.
+
+\item The 9th International Forum on Statistics (RUC IFS 2023), July 14-15, 2023, Beijing, China.
+
+\item The 2023 ICSA China Conference, June 30 – July 3, 2023, Sichuan, China.
 
 \item The 2021 World Meeting of the International Society for Bayesian Analysis, Jun
   28— Jul 02, 2021。邀请发言人。
