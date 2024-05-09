@@ -91,6 +91,9 @@
 \setlength{\parskip}{.0em}
 \setlength{\parindent}{1em}
 
+%% Disable section numbering
+\setcounter{secnumdepth}{-1}
+
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage[colorlinks=true]{hyperref}
@@ -124,13 +127,13 @@
 
 \begin{document}
 \thispagestyle{plain}
-\section*{\Huge{李丰~~博士}}
+\section{\Huge{李丰~~博士}}
 \begin{center}
   \emph{\huge 个人简历}
 \end{center}
 \rule{\textwidth}{.01cm}
 
-\section*{个人信息}
+\section{个人信息}
 \begin{tabular}{l p{4cm} l  l l}
   姓名：   & 李丰 & 外文论文署名： & Feng Li                                 \\
   % 性别： & 男   & 出生日期：     & 1984年1月16日                           \\
@@ -138,14 +141,14 @@
   \includegraphics[height=1em]{orcid-logo}   & \multicolumn{3}{l}{\href{https://orcid.org/0000-0002-4248-9778}{0000-0002-4248-9778}} \\
 \end{tabular}
 
-\section*{工作任职}
+\section{工作任职}
 
 \begin{tabular}{ll}
 2013年9月—今 & 中央财经大学统计与数学学院，先后任讲师、副教授 \\
 2016年6月—2022年12月 & 中央财经大学统计与数学学院副院长、数学教学部副主任
 \end{tabular}
 
-\section*{联系方式}
+\section{联系方式}
 
 \begin{tabular}{ l l |  l  l l l}
   北京市昌平区沙河高教园   &  & \faEnvelope & \href{mailto:feng.li@cufe.edu.cn}{feng.li@cufe.edu.cn} \\
@@ -154,7 +157,7 @@
   邮编：102206             &  & \faPhone & +86 138 1066 4288 \faWechat\\
 \end{tabular}
 
-\section*{教育背景}
+\section{教育背景}
 
 \begin{tabular}{ l  p{0.75\textwidth}}
   2008 --- 2013 & \textbf{统计学~博士}，瑞典斯德哥尔摩大学统计学系 \\
@@ -166,12 +169,12 @@
   2003 --- 2007 & \textbf{统计学~本科}， 中国人民大学统计学院    \\
 \end{tabular}
 
-\section*{研究兴趣}
+\section{研究兴趣}
 
 
 \textbf{新技术驱动的预测方法 $\circ$  大数据分布式学习 $\circ$ 贝叶斯推断与统计计算}
 
-\section*{主持科研课题}
+\section{主持科研课题}
 
 \begin{itemize}
 
@@ -186,7 +189,7 @@
 
 \end{itemize}
 
-\section*{代表性成果}
+\section{代表性成果}
 \begin{refsection}
 \nocite{HuangY2024LocalInformation}
 \nocite{ZhangB2023OptimalReconciliation}
@@ -198,7 +201,7 @@
 \end{refsection}
 
 
-\section*{学术发表}
+\section{学术发表}
 \begin{refsection}
 \nocite{HuangY2024LocalInformation}
 \nocite{RenY2023InfiniteForecasta}
@@ -240,7 +243,7 @@
 \end{refsection}
 
 \newpage
-\section*{软件}
+\section{计算机软件}
 李丰老师和他的团队开发具有自主产权、适用于海量数据的开源统计和机器学习软件。详情请访问软件仓库 \url{https://github.com/feng-li}。
 
 \centering
@@ -268,7 +271,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 
 
 \newpage
-\section*{讲授课程}
+\section{讲授课程}
 （\emph{标*为全英文授课。获取课程讲义请访问} \url{http://feng.li/teaching/}）
 
 \begin{tabular}{l l ll}
@@ -300,7 +303,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 \bottomrule
 \end{tabular}
 
-\section*{主持教改课题}
+\section{主持教改课题}
 
 \begin{itemize}
 \item 2023年~~中央财经大学 教学方法研究项目：AI时代下的《统计计算》课程思政建设。
@@ -308,7 +311,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 \item 2018年~~中央财经大学 精品实验课 《统计计算》项目（结项优秀）。
 \end{itemize}
 
-\section*{主办会议}
+\section{主办会议}
 
 \begin{itemize}
 
@@ -324,7 +327,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 \item The Swedish Research Students Conference in Statistics, 2013, 瑞典斯德哥尔摩。
 \end{itemize}
 
-\section*{会议发言}
+\section{会议发言}
 
 \emph{（仅列出部分会议发言）}
 
@@ -403,7 +406,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 \end{itemize}
 
 
-\section*{学术访问}
+\section{学术访问}
 %\emph{（仅列出部分近期活动}）
 
 \begin{itemize}
@@ -427,7 +430,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
   models''， 2008年10月 17---18日，瑞典斯德哥尔摩。
 \end{itemize}
 
-\section*{计算机水平}
+\section{计算机水平}
 \begin{itemize}
 
 \item 掌握基于Hadoop/Spark的大数据计算平台及其统计方法开发。
@@ -439,7 +442,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 \item  熟练使用C/C++。
 \end{itemize}
 
-\section*{获奖情况}
+\section{获奖情况}
 \begin{itemize}
 
 \item 第二届全国高校经管类实验教学案例大赛二等奖，2017年12月。
@@ -452,7 +455,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 \item 北京市级优秀毕业生， 2007年7月。
 \end{itemize}
 
-\section*{担任期刊审稿}
+\section{担任期刊审稿}
 
 担任统计学、数据科学、管理学等领域30余种国际期刊的匿名评审，期刊评审记录详见 \url{https://orcid.org/0000-0002-4248-9778}。以下列出部分常审稿期刊列表。
 
@@ -471,7 +474,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 % \item  \emph{Studies in Nonlinear Dynamics \& Econometrics}
 \end{itemize}
 
-\section*{其他学术兼职}
+\section{其他学术兼职}
 \begin{tabular}{l p{0.8\textwidth} l}
   2023--     & 北京统计学会理事                 \\
   2023--     & 中国土木工程学会风险管理分会理事 \\
@@ -481,7 +484,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 
 \end{tabular}
 
-% \section*{联系人}
+% \section{联系人}
 % \begin{itemize}
 % \item Mattias Villani教授， 瑞典林雪平大学计算机系。电子邮件：
 %   \url{mattias.villani@liu.se}。
