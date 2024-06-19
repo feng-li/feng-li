@@ -8,5 +8,4 @@
 - ⚡ Fun fact: I am a Bayesian, and I program with `terminal` [`Emacs`](https://github.com/feng-li/.emacs.d).
 - ☕ I drink good quality coffee and enjoy the [_fika_](https://www.bbc.com/reel/video/p0bmzygz/the-swedish-tradition-that-can-make-you-happier-at-work) time with family and friends.
 
-![Github stats](https://github-readme-stats.vercel.app/api?username=feng-li)
-![Top languages](https://github-readme-stats.vercel.app/api/top-langs/?username=feng-li&hide=html,jupyter%20notebook,JavaScript,PostScript,SCSS,Less,Roff,YASnippet,CSS&layout=compact&langs_count=10)
+![Top languages](https://github-readme-stats.vercel.app/api/top-langs/?username=feng-li&hide=html,JavaScript,PostScript,SCSS,Less,Roff,YASnippet,CSS&layout=compact&langs_count=10)
