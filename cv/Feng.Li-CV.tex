@@ -46,7 +46,7 @@
 
 % Reverse enumerated numbers to bibliography and keep the default sorting order.
 \usepackage{etaremune}
-\defbibenvironment{bibliography}{\begin{etaremune}[itemsep=1ex,parsep=0pt]} {\end{etaremune}} {\item}
+\defbibenvironment{bibliography}{\begin{etaremune}[itemsep=0ex,parsep=0pt]} {\end{etaremune}} {\item}
 \renewcommand{\labelenumi}{[\theenumi]}
 
 \addbibresource{publications-feng.bib}
@@ -90,7 +90,12 @@
 
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue}
 \hypersetup
 {
   pdfauthor={Feng Li, 李丰},
@@ -127,10 +132,10 @@
 \thispagestyle{plain}
 
 \hrule
-\section{Personal Information}
+\section{Personal information}
 \begin{tabular}{l p{4cm} l  l l}
   Given name/Surname:                      & Feng/Li               & Name in Chinese: & \bf{李丰}        \\
-  Place of birth:                          & Inner Mongolia, China & Nationality:     & Chinese          \\
+  Place of birth:                          & Inner Mongolia, China & Citizenship:     & China            \\
   Gender:                                  & Male                  & Language:        & English, Chinese \\
   \includegraphics[height=1em]{orcid-logo}~~{\href{https://orcid.org/0000-0002-4248-9778}{0000-0002-4248-9778}}& \multicolumn{3}{l}{\faGoogle~~  \url{https://scholar.google.com/citations?user=IN2QMXYAAAAJ}}& \\
 \end{tabular}
@@ -141,7 +146,7 @@
 2024 July -- now &  \textbf{Associate Professor} & Guanghua School of Management, Peking University, Beijing 100871, China \\
 \end{tabular}
 
-\section{Employment History}
+\section{Employment history}
 
 \begin{tabular}{llp{9.5cm}}
   2020 November -- 2024 June &  \textbf{Associate Professor} & School of Statistics and Mathematics, Central University of Finance and Economics, Beijing 102206, China\\
@@ -176,37 +181,43 @@ Beijing 100871, China         &  & \faPhone    & +86 (0)10 6274 7602            
  2003--2007 & \textbf{Bachelor, Statistics}, Renmin University of China.   \\
 \end{tabular}
 
-\section{Research Interests}
+\section{Research interests}
 
 Bayesian Statistics $\circ$ Econometrics \& Forecasting $\circ$ Machine Learning $\circ$ Distributed Statistical Computing
 
+\begin{itemize}
+\item Dr. Feng Li has authored 40 peer-reviewed papers since 2010.
+\item On Google Scholar his H-index is 16 with total citations of 2163 (as at \today).
+\item He has coauthored over 20 R packages and Python libraries on time series forecasting and machine learning.
+\end{itemize}
 
 \section{Grants}
+
+Dr. Feng Li has acquired over 3 million (in CNY) internal and external research grants since 2013.
+
 \begin{itemize}
 
 \item Statistical Learning and Management Practices in Large-Scale Business Scenarios. Funded by \textbf{National Natural Science Foundation of China} (2025+). \textbf{Major Investigator, CNY 500,000}.
 
-\item Evaluation on Sports Betting Market. Funded by the \textbf{Hong Kong Jockey Club (Beijing)} (2024+). \textbf{Principal Investigator, CNY 670,000}.
+\item Evaluation on Sports Betting Market. Funded by the \textbf{Hong Kong Jockey Club (Beijing)} (2024-2025). \textbf{Principal Investigator, CNY 670,000}.
 
 \item Hierarchical economic forecasting from a global modeling perspective. Funded by the \textbf{National Social Science Fund of China} (2022+). \textbf{Principal Investigator, CNY 200,000}.
 
 \item Complex Time Series Forecasting for E-commerce. Funded by \textbf{Alibaba Innovative Research Program} (2021 -- 2023). \textbf{Principal investigator, CNY 470,000}.
 
-\item Development of the Methodologies of Objective Performance Criteria Based Single-Armed Trials for The Clinical Evaluation of Traditional Chinese Medicine. Funded by \textbf{National Natural Science Foundation of China} (2020+  ). \textbf{Major Investigator, CNY 150,000}.
+\item Development of the Methodologies of Objective Performance Criteria Based Single-Armed Trials for The Clinical Evaluation of Traditional Chinese Medicine. Funded by \textbf{National Natural Science Foundation of China} (2020-2024). \textbf{Major Investigator, CNY 150,000}.
 
-\item Efficient Bayesian Flexible Density Methods with High Dimensional Financial Data. Funded by \textbf{National Natural Science Foundation of China} (2016 -- 2019). \textbf{Principal investigator, CNY 200,000}.
+\item Efficient Bayesian Flexible Density Methods with High Dimensional Financial Data. Funded by \textbf{National Natural Science Foundation of China} (2016-2019). \textbf{Principal investigator, CNY 200,000}.
 
-\item Bayesian Multivariate Density Estimation Methods for Complex Data. Funded by \textbf{Ministry of Education, China} (2014 -- 2016). \textbf{Principal investigator, CNY 50,000}.
+\item Bayesian Multivariate Density Estimation Methods for Complex Data. Funded by \textbf{Ministry of Education, China} (2014-2016). \textbf{Principal investigator, CNY 50,000}.
 
 \end{itemize}
 
-\newpage
+\begin{refsection}
 \section{Publications}
 
-(\emph{Complete publication list available at}
-  \url{https://scholar.google.com/citations?user=IN2QMXYAAAAJ})
+Dr. Feng Li has an extensive publication record of 40 peer-reviewed papers, a monograph on distributed computing, and two online textbooks as at \today. His research spans Bayesian statistics, time series forecasting, machine learning, and distributed statistical computing, with articles appearing in leading journals such as \emph{International Journal of Forecasting}, \emph{European Journal of Operational Research}, \emph{Contemporary Accounting Research}, and \emph{Journal of Computational and Graphical Statistics}. His contributions include pioneering methods in forecasting, distributed computing, and machine learning methods. His works integrate methodological innovation with applications in economics, finance, tourism, e-commerce, public health, and safety science. Complete publication list available at  \url{https://scholar.google.com/citations?user=IN2QMXYAAAAJ}.
 
-\begin{refsection}
 \nocite{PanZ2025MyopiaHigh}
 \nocite{ZhongY2025OptimalStarting}
 \nocite{WangWen2025VARX}
@@ -249,38 +260,87 @@ Bayesian Statistics $\circ$ Econometrics \& Forecasting $\circ$ Machine Learning
 \nocite{LiF2010FlexibleModeling}
 
 \printbibliography[heading=none]
-\end{refsection}
 
-% \newpage
+\section{Peer-review services}
+
+\begin{itemize}
+
+\item Dr. Feng Li has served as a reviewer for over 50 leading journals and conferences, completing more than 150 peer reviews since 2013. His work spans top outlets including \emph{Journal of the Royal Statistical Society: Series B}, \emph{International Journal of Forecasting}, \emph{Journal of Business \& Economic Statistics}, \emph{Neurocomputing}, and \emph{IEEE Transactions journals}. Recent review records are available at \url{https://orcid.org/0000-0002-4248-9778}.
+
+\item He also reviewed for conferences papers for the 7th International Conference on Computational Social Science (2021) and the 2021 IEEE PES Innovative Smart Grid Technologies Conference Europe.
+  % Selected journals list below.
+  % \begin{itemize}
+  % \item Journal of the Royal Statistical Society: Series B
+  % \item Journal of Business and Economics Statistics
+  % \item Annals of Applied Statistics
+  % \item Bayesian Analysis
+  % \item International Journal of Forecasting
+  % \item Omega - The International Journal of Management Science
+  % \item Pattern Recognition
+  % \item Neurocomputing
+  % \item Computational Statistics and Data Analysis
+  % \item  \emph{Journal of Statistical Computation and Simulation}
+  % \item  \emph{Australian \& New Zealand Journal of Statistics}
+  % \item  \emph{Journal of Official Statistics}
+  % \item  \emph{Quantitative Finance}
+  % \item  \emph{Information Sciences}
+  % \item  \emph{Studies in Nonlinear Dynamics \& Econometrics}
+  % \end{itemize}
+
+\item He has been the examiner for doctoral theses more than 20 times for students globally.
+\end{itemize}
+
+
+\section{Research awards}
+\begin{itemize}
+
+\item Grand Prize and Second Runner-Up Prize in the Tourism Forecasting Competition II, March 2025.
+
+\item The 2014 Cramér Prize for best PhD thesis in Statistics in Sweden, March 2014.
+
+\item International Society for Bayesian Analysis junior travel award, June 2012.
+
+\item Travel grant from The Knut and Alice Wallenberg Foundation, August 2011, Sweden.
+
+\item Outstanding graduate student, honored by Beijing Municipal Education Commission, July 2007, China.
+
+\end{itemize}
+
+
+\newpage
 \section{Software}
-I develop open-source software for statistical analysis and machine learning, optimized for large-scale data processing
-on the Apache Spark distributed computing platform. You can find more details at my code repository
-\url{https://github.com/feng-li}.
+
+Dr. Feng Li has developed over 20 open-source R and Python packages for statistical analysis, time series forecasting, and machine learning, many optimized for large-scale computation on Apache Spark and GPU platforms. His software contributions include widely used tools for hierarchical forecasting, distributed ARIMA and quantile regression and synthetic time series generation, several of which are featured in the R Task Views. Source code is available at code repository \url{https://github.com/feng-li}.
 
 %\resizebox{\textwidth}{!}{
 \begin{center}
-\begin{tabular}{lp{9cm}ccl}
+\begin{tabular}{lp{6cm}cclp{3cm}}
   \toprule
-  Package   & Description                                                                                                                                            & Language & Environment & Available On \\
+  Package     & Description                                                                                                                             & Language & Environment & Available On & Related Publication                                         \\
   \midrule
-gratis      & Efficient algorithms for generating time series with diverse and controllable characteristics. {\color{red}(Selected in R Task View for Time Series)}. & R        & All         & CRAN, GitHub \\
-febama      & Feature-based Bayesian Forecasting Model Averaging                                                                                                     & R        & All         & GitHub       \\
-fide        & Feature-based Intermittent DEmand forecasting                                                                                                          & R        & All         & GitHub       \\
-fuma        & Forecast uncertainty based on model averaging                                                                                                          & R        & All         & GitHub       \\
-fformpp     & Feature-based FORecast Model Performance Prediction                                                                                                    & R        & All         & GitHub       \\
-dng         & Distribution and Gradients for Skewed Distributions  {\color{red}(Selected in R Task View for Probability Distributions)}                              & R        & All         & CRAN, GitHub \\
-pyhts       & A python package for hierarchical forecasting                                                                                                          & Python   & All         & GitHub, PyPi \\
-dlsa        & Distributed Least Squares Approximation implemented with Apache Spark                                                                                  & Python   & Spark       & GitHub       \\
-darima      & Distributed ARIMA models implemented with Apache Spark                                                                                                 & Python   & Spark       & GitHub       \\
-dqr         & Distributed Quantile Regression by Pilot Sampling and One-Step Updating                                                                                & Python   & Spark       & GitHub       \\
-cdcopula    & Covariate-dependent copula models                                                                                                                      & R        & All         & GitHub       \\
-movingknots & Efficient Bayesian Multivariate Surface Regression                                                                                                     & R        & All         & GitHub       \\
-flutils     & A collection of R functions which is required from my other packages                                                                                   & R        & All         & GitHub       \\
-GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtures of Asymmetric Student T Densities                                                 & Matlab   & All         & GitHub       \\
+gratis        & Efficient algorithms for generating time series with diverse and controllable characteristics (Selected in R Task View for Time Series) & R        & All         & CRAN, GitHub & \citet{KangY2020GRATISGeneRAting}
+                                                                                                                                                                                                                                                              \\
+videofeatures & Efficient algorithms for generating time series features from video and voice data                                                      & Python   & GPU         & GitHub                                                                     \\
+febama        & Feature-based Bayesian Forecasting Model Averaging                                                                                      & R        & All         & GitHub       & \citet{LiL2023BayesianForecast}                             \\
+fide          & Feature-based Intermittent DEmand forecasting                                                                                           & R        & All         & GitHub       & \citet{LiL2023FeaturebasedIntermittent}                     \\
+fuma          & Forecast uncertainty based on model averaging                                                                                           & R        & All         & GitHub       & \citet{WangX2022UncertaintyEstimation}                      \\
+fformpp       & Feature-based FORecast Model Performance Prediction                                                                                     & R        & All         & GitHub       & \citet{TalagalaTS2022FFORMPPFeaturebased}                   \\
+dng           & Distribution and Gradients for Skewed Distributions (Selected in R Task View for Probability Distributions)                             & R        & All         & CRAN, GitHub & \citet{LiF2010FlexibleModeling,LiF2011ModellingConditional} \\
+pyhts         & A python package for hierarchical forecasting                                                                                           & Python   & All         & GitHub, PyPi & \citet{ZhangB2023OptimalReconciliation}                     \\
+dlsa          & Distributed Least Squares Approximation implemented with Apache Spark                                                                   & Python   & Spark       & GitHub       & \citet{ZhuX2021LeastSquareApproximation}                    \\
+darima        & Distributed ARIMA models implemented with Apache Spark                                                                                  & Python   & Spark       & GitHub       & \citet{WangX2023DistributedARIMA}                           \\
+dts           & Distributed time series models implemented with distributed FFTs                                                                        & Python   & Spark       & GitHub                                                                     \\
+dqr           & Distributed Quantile Regression by Pilot Sampling and One-Step Updating                                                                 & Python   & Spark       & GitHub       & \citet{PanR2022NoteDistributed}                             \\
+cdcopula      & Covariate-dependent copula models                                                                                                       & R        & All         & GitHub       & \citet{LiF2018ImprovingForecasting}                         \\
+movingknots   & Efficient Bayesian Multivariate Surface Regression                                                                                      & R        & All         & GitHub       & \citet{LiF2013EfficientBayesian}                            \\
+flutils       & A collection of R functions which is required from my other packages                                                                    & R        & All         & GitHub                                                                     \\
+GSM           & Flexible Modeling of Conditional Distributions using Smooth Mixtures of Asymmetric Student T Densities                                  & Matlab   & All         & GitHub       & \citet{LiF2010FlexibleModeling}                             \\
   \bottomrule
 \end{tabular}
 \end{center}
 % }
+
+\end{refsection}
 
 % \begin{refsection}
 % \nocite{gratis}
@@ -290,7 +350,9 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 \newpage
 \section{Teaching}
 
-\indent As an educator in the field of Statistics, with a specific focus on Big Data and Artificial Intelligence, my teaching philosophy is rooted in the belief that education is a transformative process that goes beyond the mere transfer of knowledge. It is a dynamic and reciprocal exchange that empowers students to think critically, solve real-world problems, and become lifelong learners. In every year since 2013, student evaluations have given an average rating for my teaching above 95 out of 100.
+Dr. Feng Li has over a decade of teaching experience at leading universities, delivering courses at undergraduate, graduate, and MBA levels in statistics, big data, and AI-driven forecasting. He has lectured over 2000 hours for total of 5000+ students since 2008, consistently achieving student evaluation scores above 95/100 since 2013.
+
+His teaching portfolio includes foundational topics such as regression analysis, econometrics, and Bayesian statistics, as well as advanced courses on distributed statistical computing, forecasting with AI, and big data computation. He has taught in both English and Chinese, integrating cutting-edge research and real-world applications into the classroom. Dr. Li emphasizes interactive, problem-solving–oriented learning and the use of open educational resources, with all course materials made publicly accessible.
 
 \begin{center}
   \begin{tabular}{p{7.5cm}llll}
@@ -329,58 +391,92 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
     \emph{\url{https://feng.li/teaching/}}. Courses marked with * are taught in English. U: undergraduate level, G: graduate level. })}
 
 
-\section{Presentations and Invited Talks}
+\section{Mentorship}
+
+\begin{itemize}
+\item Dr. Feng Li has cosupervised 5 PhD students and led the \href{https://kllab.org}{KLLAB.org} research group.
+
+\item He has mentored over 50 undergraduate, graduate (including MBA), and research assistant students on projects in forecasting, machine learning, and big data analytics. His students have gone on to prestigious placements, including positions at the United Nations, doctoral studies at leading universities, and roles in top technology firms such as ByteDance and Tencent. Others have joined major financial institutions and research organizations.
+
+\item He has also mentored recognized international competitions, such as the United Nations Big Data Hackathon (2022--2023).
+
+\end{itemize}
+
+\section{Conference organization}
+
+Dr. Feng Li has led major academic events such as the 45th International Symposium on Forecasting (2025), attracting leading scholars and industry experts worldwide. His workshops and conferences have advanced global collaboration in forecasting, Bayesian computation, and statistical computing.
+
 \begin{itemize}
 
-\item Quarterly Forecasting Forum (International Institute of Forecasters), University of Bath School of Management, February 14, 2025, UK.
+\item 2025: The 45th International Symposium on Forecasting. June 28-July 2, Beijing, China. Local Chair.
+\item 2025: The 2025 Guanghua Workshop on Forecasting. July 3, Beijing, China. Organizer.
+\item 2024: The 2024 PKU Workshop on Modern Bayesian Computation. December 9, Beijing, China. Organizer.
+\item 2017: The 2017 Beijing Workshop on Forecasting. November 18, 2017, Beijing, China. Organizer.
+\item 2016: Annual Conference of Chinese Association of Quantitative Economics, October 15-16, Beijing, China. Organizer.
+\item 2014: International Symposium on Financial Engineering and Risk Management 2014. June 27-28, 2014, Beijing China. Executive secretary and organizer.
+\item 2013: The First Swedish Research Students Conference in Statistics, April 18-19, Stockholm, Sweden. Organizer.
+\item 2013: 2012–2013, PhD. Study Group, Department of Statistics, Stockholm University.
+\end{itemize}
 
-\item The 7th International Conference on Econometrics and Statistics (EcoSta 2024), July 17, 2014, Beijing, China.
+\section{Presentations and invited talks}
 
-\item The 44th International Symposium on Forecasting, June 30-July 02, 2024, Dijon, France.
+Dr. Feng Li has delivered over 30 invited talks and presentations at prestigious international conferences, workshops, and universities worldwide, including the International Symposium on Forecasting, IEEE International Conference on Data Mining, and the World Meeting of the International Society for Bayesian Analysis. His engagements span topics in forecasting, Bayesian computation, machine learning, and big data analytics. Slides are available at \url{https://feng.li/talks/}.
 
-\item The 23rd IEEE International Conference on Data Mining, December 1-4, 2023, Shanghai, China.
+\begin{etaremune}[itemsep=0ex,parsep=0pt]
 
-\item The 9th International Forum on Statistics (RUC IFS 2023), July 14-15, 2023, Beijing, China.
+\item The 3rd Joint Conference on Statistics and Data Science in China, July 11-13, Hangzhou, China. Invited Speaker.
 
-\item The 2023 ICSA China Conference, June 30 – July 3, 2023, Sichuan, China.
+\item Quarterly Forecasting Forum (International Institute of Forecasters), University of Bath School of Management, February 14, 2025, UK. Invited Speaker.
 
-\item The 41st International Symposium on Forecasting, 27-28 June 2021.
+\item The 7th International Conference on Econometrics and Statistics (EcoSta 2024), July 17, 2024, Beijing, China. Invited Speaker and Session Organizer.
 
-\item The 2021 World Meeting of the International Society for Bayesian Analysis, July 2, 2021.
+\item Seminar at Guanghua School of Management, Peking University, January 02, 2024, Beijing, China. Invited Speaker.
 
-\item The 40th International Symposium on Forecasting, Virtual. October 26, 2020.
+\item The 44th International Symposium on Forecasting, June 30-July 02, 2024, Dijon, France. Invited Speaker and Session Organizer.
 
-\item Twelfth International Conference on Monte Carlo Methods and Application (MCM 2019), Sydney, Australia, from July 8 to 12, 2019.
+\item The 23rd IEEE International Conference on Data Mining, December 1-4, 2023, Shanghai, China. Invited Speaker.
 
-\item 39th International Symposium on Forecasting, Thessaloniki, Greece 16-19 June 2019.
+\item The 9th International Forum on Statistics (RUC IFS 2023), July 14-15, 2023, Beijing, China. Invited Speaker.
 
-\item ICSA Conference on Data Science, January 11-13, 2019, Xishuangbanna, China.
+\item The 2023 ICSA China Conference, June 30 – July 3, 2023, Sichuan, China. Invited Speaker.
 
-\item School of Data Science, Fudan University, Oct 28-30, 2017, Shanghai, China
+\item The 41st International Symposium on Forecasting, 27-28 June 2021. Invited Speaker and Session Organizer.
 
-\item International Symposium on Financial Engineering and Risk Management 2018, June 13, 2018, Shanghai, China.
+\item The 2021 World Meeting of the International Society for Bayesian Analysis, July 2, 2021. Invited Speaker.
 
-\item School of Data Science, Fudan University, Oct 28-30, 2017, Shanghai, China
+\item The 40th International Symposium on Forecasting, Virtual. October 26, 2020. Invited Speaker and Session Organizer.
 
-\item IMS-China International Conference on Statistics and Probability, June 28 – July 1, 2017, Nanning, China.
+\item Twelfth International Conference on Monte Carlo Methods and Application (MCM 2019), Sydney, Australia, July 8-12, 2019. Invited Speaker.
 
-\item The 1st International Conference on Econometrics and Statistics, Hong Kong, 15-17 June 2017.
+\item 39th International Symposium on Forecasting, Thessaloniki, Greece 16-19 June 2019. Invited Speaker and Session Organizer.
 
-\item The 2016 World Meeting of the International Society for Bayesian Analysis, Jun 13—17, 2016, Sardinia, Italy.
+\item ICSA Conference on Data Science, January 11-13, 2019, Xishuangbanna, China. Invited Speaker.
 
-\item IMS-China International Conference on Statistics and Probability, June 1-4, 2015, Kunming, China.
+\item School of Data Science, Fudan University, Oct 28-30, 2017, Shanghai, China. Invited Speaker.
 
-\item International Symposium on Financial Engineering and Risk Management 2014, June 27, 2014, Beijing, China.
+\item International Symposium on Financial Engineering and Risk Management 2018, June 13, 2018, Shanghai, China. Invited Speaker.
 
-\item Guanghua School of Management Peking University, Oct 14, 2013, Beijing, China
+\item School of Data Science, Fudan University, Oct 28-30, 2017, Shanghai, China. Invited Speaker.
 
-\item The Stockholm University Forskardagarna, 2-3 Oct, 2013, Stockholm, Sweden.
+\item IMS-China International Conference on Statistics and Probability, June 28 – July 1, 2017, Nanning, China. Invited Speaker.
 
-\item The 59th World Statistics Congress, August 25-29, 2013, Hong Kong.
+\item The 1st International Conference on Econometrics and Statistics, Hong Kong, 15-17 June 2017. Invited Speaker.
+
+\item The 2016 World Meeting of the International Society for Bayesian Analysis, Jun 13-17, 2016, Sardinia, Italy. Invited Speaker.
+
+\item IMS-China International Conference on Statistics and Probability, June 1-4, 2015, Kunming, China. Invited Speaker.
+
+\item International Symposium on Financial Engineering and Risk Management 2014, June 27, 2014, Beijing, China. Local Organizer.
+
+\item Guanghua School of Management Peking University, Oct 14, 2013, Beijing, China. Invited Speaker.
+
+\item The Stockholm University Forskardagarna, 2-3 Oct, 2013, Stockholm, Sweden. Invited Speaker.
+
+\item The 59th World Statistics Congress, August 25-29, 2013, Hong Kong. Invited Speaker.
 
 \item The 2012 World Meeting of the International Society for Bayesian Analysis, Jun 25--29, 2012, Japan. Poster presentation.
 
-\item The third Linnaeus University Workshop in Stochastic Analysis and Applications, May 24--25, Växjö. Invited speaker.
+\item The third Linnaeus University Workshop in Stochastic Analysis and Applications, May 24--25, Växjö. Invited Speaker.
 
 \item Seminar at Department of Energy and Technology, Swedish University of Agricultural Sciences, Apr 16, 2012, Sweden.
 
@@ -394,102 +490,42 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 
 \item Seminar at Department of statistics, Uppsala University, Sep 16, 2009, Sweden.
 
-\end{itemize}
-
-
-\section{Other Conferences \& Activities}
-\begin{itemize}
-\item Visiting Division of Statistics, Department of Computer and Information Science, Linköping University, Sweden, Sep 1, 2011 -- Feb 29,2012.
-
-\item Intensive PhD course: ``Introduction to Bayesian Analysis and MCMC, and, Hierarchical Modeling of Spatial and Temporal Data'' by Alan Gelfand (Duke University) and Sujit Sahu (University of Southampton), June 7--10, 2011, University of Southampton, UK.
-
-\item Intensive PhD course: ``Semi-Parametric Bayesian Inference in Econometrics'' by Peter Rossi (University of Chicago), May 27--29, 2009, Erasmus University Rotterdam, The Netherlands.
-
 \item Conference ``Modeling and Forecasting Economic and Financial Time Series with State Space models'', Central Bank of Sweden, Oct 17--18, 2008.
-\end{itemize}
 
-\section{Awards}
+\end{etaremune}
+
+\section{Academic visiting}
+\begin{etaremune}[itemsep=0ex,parsep=0pt]
+\item 2025 February, Visiting University of Bath School of Management, UK.
+\item 2024 October,  Visiting University of Sydney Business School, Australia.
+\item 2014 August,  Visiting Toronto University, Canada.
+\item 2013 October,  Visiting Stockholm University, Sweden.
+\item Visiting Division of Statistics, Department of Computer and Information Science, Linköping University, Sweden, Sep 1, 2011 -- Feb 29,2012.
+\item Visiting University of Southampton for intensive PhD course: ``Introduction to Bayesian Analysis and MCMC, and, Hierarchical Modeling of Spatial and Temporal Data'' by Alan Gelfand (Duke University) and Sujit Sahu, June 7--10, 2011, University of Southampton, UK.
+\item Visiting Erasmus University Rotterdam for intensive PhD course: ``Semi-Parametric Bayesian Inference in Econometrics'' by Peter Rossi (University of Chicago), May 27--29, 2009, Rotterdam, The Netherlands.
+
+\end{etaremune}
+
+
+\section{Computational skills}
 \begin{itemize}
 
-\item Grand Prize in the Tourism Forecasting Competition II, March 2025.
+\item Extensive experience with high-performance computing on large Linux-based CPU/GPU clusters, leveraging Hadoop and Apache Spark for distributed data processing.
 
-\item The 2014 Cramér Prize, March 2014.
+\item Proficient in R, Python, and MATLAB, with strong foundations in C/C++ for performance-critical applications.
 
-\item International Society for Bayesian Analysis junior travel award, June 2012.
-
-\item Travel grant from The Knut and Alice Wallenberg Foundation, August 2011, Sweden.
-
-\item Outstanding graduate student, honored by Beijing Municipal Education Commission, July 2007, China.
+\item Skilled in developing and deploying scalable statistical, forecasting, and machine learning solutions, including open-source packages optimized for big data environments.
 
 \end{itemize}
 
 
-\section{Computer Skills}
-\begin{itemize}
-\item Skilled in GNU/Linux and have rich programming experience on large Linux CPU/GPU clusters with Hadoop/Spark.
-\item Proficient in \textbf{R} and Python and Matlab.
-\item Good at C/C++.
-\end{itemize}
-
-\section{Conferences Organized}
-
-\begin{itemize}
-
-\item 2025: The 45th International Symposium on Forecasting.
-\item 2024: The 2024 PKU Workshop on Modern Bayesian Computation.
-\item 2017: The 2017 Beijing Workshop on Forecasting.
-\item 2016: Annual Conference of Chinese Association of Quantitative Economics.
-\item 2014: Executive secretary of International Symposium on Financial Engineering and Risk Management 2014.
-\item 2013: The Swedish Research Students Conference in Statistics.
-\item 2013: 2012–2013, PhD. Study Group, Department of Statistics, Stockholm University.
-\end{itemize}
-
-\section{Academic Services}
-
-\begin{itemize}
-
-\item I have been the examiner for doctoral theses more than 10 times for students globally.
-\item Mentor, the United Nations Big Data Hackathon, 2022--2023.
-\item In the past five years, Feng Li has contributed over 100 high quality peer reviews for 45 publications in the field of statistical methodology, time series forecasting, computer science and management. Full review records are available at \url{https://orcid.org/0000-0002-4248-9778}. Selected journals list below.
-
-  \begin{itemize}
-  \item Journal of the Royal Statistical Society: Series B
-  \item Journal of Business and Economics Statistics
-  \item Annals of Applied Statistics
-  \item Bayesian Analysis
-  \item International Journal of Forecasting
-  \item Omega - The International Journal of Management Science
-  \item Pattern Recognition
-  \item Neurocomputing
-  \item Computational Statistics and Data Analysis
-    % \item  \emph{Journal of Statistical Computation and Simulation}
-    % \item  \emph{Australian \& New Zealand Journal of Statistics}
-    % \item  \emph{Journal of Official Statistics}
-    % \item  \emph{Quantitative Finance}
-    % \item  \emph{Information Sciences}
-    % \item  \emph{Studies in Nonlinear Dynamics \& Econometrics}
-  \end{itemize}
-\end{itemize}
-
-
-\section{Academic Visiting}
-
-\begin{itemize}
-\item 2025 February, University of Bath School of Management, UK
-\item 2024 October, University of Sydney Business School, Australia
-\item 2014 August, Toronto University, Canada
-\item 2013 October, Stockholm University, Sweden
-\item 2011 September – 2012 March, Linköping University, Sweden
-\item 2011 June, University of Southampton, UK
-\item 2009 May, Erasmus University Rotterdam, The Netherlands
-\end{itemize}
-
-\section{Society Memberships}
+\section{Society memberships}
 
 \begin{itemize}
 \item Member, International Institute of Forecasters
 \item Member, American Statistical Association
 \item Member, International Society for Bayesian Analysis
+\item Member, International Chinese Statistical Association
 \end{itemize}
 
 % \section{References}

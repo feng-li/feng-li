@@ -52,7 +52,7 @@
 
 % Reverse enumerated numbers to bibliography and keep the default sorting order.
 \usepackage{etaremune}
-\defbibenvironment{bibliography}{\begin{etaremune}[itemsep=1ex,parsep=0pt]} {\end{etaremune}} {\item}
+\defbibenvironment{bibliography}{\begin{etaremune}[itemsep=0ex,parsep=0pt]} {\end{etaremune}} {\item}
 \renewcommand{\labelenumi}{[\theenumi]}
 
 \addbibresource{publications-feng.bib}
@@ -100,7 +100,12 @@
 
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue}
 \hypersetup
 {
   pdfauthor={Feng Li, 李丰},
@@ -237,8 +242,8 @@
 \end{refsection}
 
 
-\section{学术发表}
 \begin{refsection}
+\section{学术发表}
 \nocite{PanZ2025MyopiaHigh}
 \nocite{ZhongY2025OptimalStarting}
 \nocite{WangWen2025VARX}
@@ -281,36 +286,40 @@
 \nocite{LiF2010FlexibleModeling}
 
 \printbibliography[heading=none]
-\end{refsection}
 
 \newpage
 \section{计算机软件}
 李丰老师和他的团队开发具有自主产权、适用于海量数据的开源统计和机器学习软件。详情请访问软件仓库 \url{https://github.com/feng-li}。
 
-% \centering
 \begin{center}
-\begin{tabular}{lp{9cm}ccl}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lp{6cm}cclp{3cm}}
   \toprule
-  Package   & Description                                                                                                          & Language & Environment & Available On         \\
+  Package     & Description                                                                                                                             & Language & Environment & Available On & Related Publication                                         \\
   \midrule
-gratis      & Efficient algorithms for generating time series with diverse and controllable characteristics. {\color{blue}(Selected in R Task View for Time Series)}. & R        & All         & CRAN, GitHub \\
-febama      & Feature-based Bayesian Forecasting Model Averaging                                                                   & R        & All         & GitHub       \\
-fide        & Feature-based Intermittent DEmand forecasting                                                                        & R        & All         & GitHub       \\
-fuma        & Forecast uncertainty based on model averaging                                                                        & R        & All         & GitHub       \\
-fformpp     & Feature-based FORecast Model Performance Prediction                                                         & R        & All         & GitHub       \\
-dng         & Distribution and Gradients for Skewed Distributions  {\color{blue}(Selected in R Task View for Probability Distributions)}                                                                 & R        & All         & CRAN, GitHub \\
-pyhts       & A python package for hierarchical forecasting                                                                        & Python   & All         & GitHub, PyPi \\
-dlsa        & Distributed Least Squares Approximation implemented with Apache Spark                                                & Python   & Spark       & GitHub       \\
-darima      & Distributed ARIMA models implemented with Apache Spark                                                               & Python   & Spark       & GitHub       \\
-dqr         & Distributed Quantile Regression by Pilot Sampling and One-Step Updating                                              & Python   & Spark       & GitHub       \\
-cdcopula    & Covariate-dependent copula models                                                                                    & R        & All         & GitHub       \\
-movingknots & Efficient Bayesian Multivariate Surface Regression                                                                   & R        & All         & GitHub       \\
-flutils     & A collection of R functions which is required from my other packages                                                 & R        & All         & GitHub       \\
-GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtures of Asymmetric Student T Densities               & Matlab   & All         & GitHub       \\
+gratis        & Efficient algorithms for generating time series with diverse and controllable characteristics (Selected in R Task View for Time Series) & R        & All         & CRAN, GitHub & \citet{KangY2020GRATISGeneRAting}
+                                                                                                                                                                                                                                                              \\
+videofeatures & Efficient algorithms for generating time series features from video and voice data                                                      & Python   & GPU         & GitHub                                                                     \\
+febama        & Feature-based Bayesian Forecasting Model Averaging                                                                                      & R        & All         & GitHub       & \citet{LiL2023BayesianForecast}                             \\
+fide          & Feature-based Intermittent DEmand forecasting                                                                                           & R        & All         & GitHub       & \citet{LiL2023FeaturebasedIntermittent}                     \\
+fuma          & Forecast uncertainty based on model averaging                                                                                           & R        & All         & GitHub       & \citet{WangX2022UncertaintyEstimation}                      \\
+fformpp       & Feature-based FORecast Model Performance Prediction                                                                                     & R        & All         & GitHub       & \citet{TalagalaTS2022FFORMPPFeaturebased}                   \\
+dng           & Distribution and Gradients for Skewed Distributions (Selected in R Task View for Probability Distributions)                             & R        & All         & CRAN, GitHub & \citet{LiF2010FlexibleModeling,LiF2011ModellingConditional} \\
+pyhts         & A python package for hierarchical forecasting                                                                                           & Python   & All         & GitHub, PyPi & \citet{ZhangB2023OptimalReconciliation}                     \\
+dlsa          & Distributed Least Squares Approximation implemented with Apache Spark                                                                   & Python   & Spark       & GitHub       & \citet{ZhuX2021LeastSquareApproximation}                    \\
+darima        & Distributed ARIMA models implemented with Apache Spark                                                                                  & Python   & Spark       & GitHub       & \citet{WangX2023DistributedARIMA}                           \\
+dts           & Distributed time series models implemented with distributed FFTs                                                                        & Python   & Spark       & GitHub                                                                     \\
+dqr           & Distributed Quantile Regression by Pilot Sampling and One-Step Updating                                                                 & Python   & Spark       & GitHub       & \citet{PanR2022NoteDistributed}                             \\
+cdcopula      & Covariate-dependent copula models                                                                                                       & R        & All         & GitHub       & \citet{LiF2018ImprovingForecasting}                         \\
+movingknots   & Efficient Bayesian Multivariate Surface Regression                                                                                      & R        & All         & GitHub       & \citet{LiF2013EfficientBayesian}                            \\
+flutils       & A collection of R functions which is required from my other packages                                                                    & R        & All         & GitHub                                                                     \\
+GSM           & Flexible Modeling of Conditional Distributions using Smooth Mixtures of Asymmetric Student T Densities                                  & Matlab   & All         & GitHub       & \citet{LiF2010FlexibleModeling}                             \\
   \bottomrule
 \end{tabular}
+}
 \end{center}
 
+\end{refsection}
 
 \newpage
 \section{讲授课程}
@@ -381,7 +390,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 
 %\emph{（仅列出部分会议发言）}
 
-\begin{itemize}
+\begin{etaremune}[itemsep=0ex,parsep=0pt]
 
 \item Quarterly Forecasting Forum (International Institute of Forecasters), University of Bath School of Management, February 14, 2025, UK.
 
@@ -459,7 +468,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 \item Seminar at Department of statistics， Uppsala University， 2009年9
   月16日， 瑞典。
 
-\end{itemize}
+\end{etaremune}
 
 
 \section{学术访问}
@@ -507,7 +516,7 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 \begin{itemize}
 \item   担任国内外知名高校博士论文答辩评委，为北京大学、复旦大学、澳大利亚蒙纳士大学等10余篇博士论文撰写独立评审意见。
 \item   担任联合国大数据黑客松大赛指导老师（2022年-2023年）
-\item   担任统计学、数据科学、管理学等领域30余种国际期刊的匿名评审，过去五年撰写100多个高质量匿名论文评审意见。期刊评审记录详见 \url{https://orcid.org/0000-0002-4248-9778}。以下列出部分常审稿期刊列表。
+\item   担任统计学、数据科学、管理学等领域50余种国际期刊的匿名评审，过去五年撰写150多个高质量匿名论文评审意见。期刊评审记录详见 \url{https://orcid.org/0000-0002-4248-9778}。以下列出部分常审稿期刊列表。
 \begin{itemize}
 \item Journal of the Royal Statistical Society: Series B
 \item Journal of Business and Economics Statistics
@@ -529,9 +538,9 @@ GSM         & Flexible Modeling of Conditional Distributions using Smooth Mixtur
 
 \section{其他学术兼职}
 \begin{tabular}{l p{0.8\textwidth} l}
-  2023--     & 北京统计学会理事                 \\
-  2023--     & 中国土木工程学会风险管理分会理事 \\
-  2018--2013 & 全国工业统计学教学研究会常务理事、中国青年统计学家协会副秘书长 \\
+  2023--     & 北京统计学会理事                                               \\
+  2023--     & 中国土木工程学会风险管理分会理事                               \\
+  2018--2023 & 全国工业统计学教学研究会常务理事、中国青年统计学家协会副秘书长 \\
   2014--     & 中国统计教育学会高等教育分会副秘书长。                         \\
   2013--2014 & 2014年金融工程与风险管理国际研讨会执行秘书。                   \\
 \end{tabular}
