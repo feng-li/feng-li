@@ -5,6 +5,7 @@
 \setmainfont{Garamond Premier Pro}
 % \setmainfont{Adobe Garamond Pro}
 \usepackage{fontawesome}
+\usepackage{xstring}
 
 %% Geometry
 \usepackage[twoside]{geometry}
@@ -18,11 +19,39 @@
   \ifentrytype{article}{}{%
   \printtext{\bibstring{in}\intitlepunct}}}
 \DeclareNameAlias{sortname}{given-family}
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=annotation, match=\regexp{\\\\\s*contribution:\s*}, replace={;~}]
+      \step[fieldsource=annotation, match=\regexp{\\\\\s*software:\s*}, replace={;~software: }]
+      \step[fieldsource=annotation, match=\regexp{contribution:\s*}, replace={}]
+      \step[fieldsource=annotation, match=\regexp{\\\\\s*}, replace={}]
+    }
+  }
+}
+
+\newcommand{\formatannotation}[1]{%
+  \IfSubStr{#1}{software: }{%
+    \StrBefore{#1}{software: }[\annotationprefix]%
+    \StrBehind{#1}{software: }[\annotationtail]%
+    \IfSubStr{\annotationtail}{;~}{%
+      \StrBefore{\annotationtail}{;~}[\annotationurl]%
+      \StrBehind{\annotationtail}{;~}[\annotationsuffix]%
+      \annotationprefix software: \url{\annotationurl};~\annotationsuffix%
+    }{%
+      \annotationprefix software: \url{\annotationtail}%
+    }%
+  }{#1}%
+}
+\DeclareFieldFormat{annotation}{\mkbibbrackets{\formatannotation{#1}}}
 
 % Add annotation entry.
 \renewbibmacro*{finentry}{%
   \iffieldundef{annotation}
-    {\finentry}{\printfield{annotation} \finentry}}
+    {\finentry}
+    {\setunit{\addperiod\par\nobreak\noindent}%
+     \printfield{annotation}%
+     \finentry}}
 
 % Remove unused entries
 \AtEveryBibitem{%
@@ -186,10 +215,10 @@
 \begin{tabular}{ l  p{0.75\textwidth}}
   2008 --- 2013 & \textbf{统计学~博士}，瑞典斯德哥尔摩大学统计学系 \\
                 & 博士论文：\emph{Bayesian Modeling of Conditional Densities}（\emph{贝叶斯条件密度建模}） \\
-                & (获评2014年瑞典最佳统计学博士论文——Cramér Prize) \\
+                & （获2014年瑞典最佳统计学博士论文 Cramér Prize） \\
                 & 导　　师： Mattias Villani教授        \\
-                & 答辩主席：Sylvia Frühwirth-Schnatter 教授 (奥地利维也纳经济大学，WU ) \\
-  2007 --- 2008 & \textbf{统计学~硕士}， 瑞典达拉那大学统计学系 \\
+                & 答辩主席：Sylvia Frühwirth-Schnatter教授（奥地利维也纳经济大学，WU） \\
+  2007 --- 2008 & \textbf{统计学~硕士}，瑞典达拉那大学统计学系 \\
   2003 --- 2007 & \textbf{统计学~本科}， 中国人民大学统计学院    \\
 \end{tabular}
 
@@ -199,17 +228,17 @@
 
 \section{期刊任职}
 \begin{itemize}
-\item 国际期刊 \href{https://www.sciencedirect.com/journal/international-journal-of-forecasting}{International Journal of Forecasting} (JCR Q1, IF 7. 5) 副主编 （2025+）
+\item 国际期刊 \href{https://www.sciencedirect.com/journal/international-journal-of-forecasting}{International Journal of Forecasting} （JCR Q1，IF 7.5）副主编（2025年至今）
 
-\item 国际期刊 \href{https://www.sciencedirect.com/journal/journal-of-multivariate-analysis}{Journal of Multivariate Analysis} (JCR Q1) 副主编 (2026 +)
+\item 国际期刊 \href{https://www.sciencedirect.com/journal/journal-of-multivariate-analysis}{Journal of Multivariate Analysis} （JCR Q1）副主编（2026年至今）
 \end{itemize}
 
 \section{计算机技能}
 \begin{itemize}
 
-\item 擅长在 Spark 等现代大数据分布式计算平台设新颖的统计与预测算法。
+\item 擅长在 Spark 等现代大数据分布式计算平台设计和实现新颖的统计与预测算法。
 \item 擅长在 AI CPU/GPU 集群进行大规模计算。
-\item 熟练使用 Python, R, Scala, Bash 等主流计算机语言。
+\item 熟练使用 Python、R、Scala、Bash 等主流编程语言。
 \end{itemize}
 
 
@@ -217,24 +246,24 @@
 
 \begin{itemize}
 
-\item 2025年 \textbf{国家自然科学基金重大项目}：\emph{大规模商务场景下的统计学习与管理实践}，\textbf{子课题负责人}，在研 。
+\item 2025年 \textbf{国家自然科学基金重大项目}：\emph{大规模商务场景下的统计学习与管理实践}，\textbf{子课题负责人}，在研。
 
-\item 2022-2025年 \textbf{国家社会科学基金项目一般项目}：\emph{全局模型视角下的复杂分层经济预测研究}，\textbf{项目负责人}，结项（\textbf{结项鉴定优秀}） (20万元)。
+\item 2022--2025年 \textbf{国家社会科学基金项目一般项目}：\emph{全局模型视角下的复杂分层经济预测研究}，\textbf{项目负责人}，结项（\textbf{结项鉴定优秀}）（20万元）。
 
-\item 2020-2024年 \textbf{国家自然科学基金面上项目}：\emph{中医药临床疗效评价中基于目标值法的单臂临床研究方法体系的构建}，\textbf{主要参与人}（ 15万元）。
+\item 2020--2024年 \textbf{国家自然科学基金面上项目}：\emph{中医药临床疗效评价中基于目标值法的单臂临床研究方法体系的构建}，\textbf{主要参与人}（15万元）。
 
-\item 2015-2018年 \textbf{国家自然科学基金青年项目}：\emph{贝叶斯柔性密度方法及其在高维金融数据中的应用}，\textbf{项目负责人}，结项（18万元）。
+\item 2015--2018年 \textbf{国家自然科学基金青年项目}：\emph{贝叶斯柔性密度方法及其在高维金融数据中的应用}，\textbf{项目负责人}，结项（18万元）。
 
-\item 2014-2016年 \textbf{教育部人文社科研究项目}：\emph{贝叶斯弹性高维密度方法在复杂数据的研究}，\textbf{项目负责人}，结项。
+\item 2014--2016年 \textbf{教育部人文社科研究项目}：\emph{复杂数据中的贝叶斯弹性高维密度方法研究}，\textbf{项目负责人}，结项。
 
 \end{itemize}
 
 \section{横向课题}
 \begin{itemize}
 
-\item 2024-2025年 \textbf{北京香港马会：竞猜市场综合发展评价主题研究项目}，项目负责人，结项（67万元）。
+\item 2024--2025年 \textbf{北京香港马会：竞猜市场综合发展评价主题研究项目}，项目负责人，结项（67万元）。
 
-\item 2021-2023年 \textbf{阿里巴巴创新研究计划：电商场景下的复杂时间序列预测问题研究}，项目负责人，结项（48万元）。
+\item 2021--2023年 \textbf{阿里巴巴创新研究计划：电商场景下的复杂时间序列预测问题研究}，项目负责人，结项（48万元）。
 
 \end{itemize}
 
@@ -283,7 +312,7 @@
 \nocite{LiX2020ForecastingTime}
 \nocite{KangY2020GRATISGeneRAting}
 \nocite{kang2020statcompcn}
-\nocite{kang2020fppcn}
+\nocite{HyndmanRJ2021FPP3CN}
 \nocite{KalesanB2020IntersectionsFirearm}
 \nocite{BaileyHM2019ChangesPatterns}
 \nocite{LiF2019CreditRisk}
@@ -312,31 +341,31 @@
 
 %\newpage
 \section{计算机软件}
-李丰老师和他的团队开发具有自主产权、适用于海量数据的开源统计和机器学习软件。详情请访问软件仓库 \url{https://github.com/feng-li}。
+李丰及其团队开发了具有自主知识产权、适用于海量数据的开源统计和机器学习软件。详情请访问代码仓库 \url{https://github.com/feng-li}。
 
 \begin{center}
 \resizebox{\textwidth}{!}{
 \begin{tabular}{lp{6cm}cclp{3cm}}
   \toprule
-  Package     & Description                                                                                                                             & Language & Environment & Available On & Related Publication                                         \\
+  Package     & Description                                                                                                                             & Language & Environment & Available on & Related Publication                                         \\
   \midrule
 gratis        & Efficient algorithms for generating time series with diverse and controllable characteristics (Selected in R Task View for Time Series) & R        & All         & CRAN, GitHub & \citet{KangY2020GRATISGeneRAting}
                                                                                                                                                                                                                                                               \\
 videofeatures & Efficient algorithms for generating time series features from video and voice data                                                      & Python   & GPU         & GitHub                                                                     \\
 febama        & Feature-based Bayesian Forecasting Model Averaging                                                                                      & R        & All         & GitHub       & \citet{LiL2023BayesianForecast}                             \\
-fide          & Feature-based Intermittent DEmand forecasting                                                                                           & R        & All         & GitHub       & \citet{LiL2023FeaturebasedIntermittent}                     \\
+fide          & Feature-based intermittent demand forecasting                                                                                           & R        & All         & GitHub       & \citet{LiL2023FeaturebasedIntermittent}                     \\
 fuma          & Forecast uncertainty based on model averaging                                                                                           & R        & All         & GitHub       & \citet{WangX2022UncertaintyEstimation}                      \\
-fformpp       & Feature-based FORecast Model Performance Prediction                                                                                     & R        & All         & GitHub       & \citet{TalagalaTS2022FFORMPPFeaturebased}                   \\
+fformpp       & Feature-based forecast model performance prediction                                                                                     & R        & All         & GitHub       & \citet{TalagalaTS2022FFORMPPFeaturebased}                   \\
 dng           & Distribution and Gradients for Skewed Distributions (Selected in R Task View for Probability Distributions)                             & R        & All         & CRAN, GitHub & \citet{LiF2010FlexibleModeling,LiF2011ModelingConditional} \\
-pyhts         & A python package for hierarchical forecasting                                                                                           & Python   & All         & GitHub, PyPi & \citet{ZhangB2023OptimalReconciliation}                     \\
+pyhts         & A Python package for hierarchical forecasting                                                                                           & Python   & All         & GitHub, PyPI & \citet{ZhangB2023OptimalReconciliation}                     \\
 dlsa          & Distributed Least Squares Approximation implemented with Apache Spark                                                                   & Python   & Spark       & GitHub       & \citet{ZhuX2021LeastSquareApproximation}                    \\
 darima        & Distributed ARIMA models implemented with Apache Spark                                                                                  & Python   & Spark       & GitHub       & \citet{WangX2023DistributedARIMA}                           \\
 dts           & Distributed time series models implemented with distributed FFTs                                                                        & Python   & Spark       & GitHub                                                                     \\
 dqr           & Distributed Quantile Regression by Pilot Sampling and One-Step Updating                                                                 & Python   & Spark       & GitHub       & \citet{PanR2022NoteDistributed}                             \\
 cdcopula      & Covariate-dependent copula models                                                                                                       & R        & All         & GitHub       & \citet{LiF2018ImprovingForecasting}                         \\
 movingknots   & Efficient Bayesian Multivariate Surface Regression                                                                                      & R        & All         & GitHub       & \citet{LiF2013EfficientBayesian}                            \\
-flutils       & A collection of R functions which is required from my other packages                                                                    & R        & All         & GitHub                                                                     \\
-GSM           & Flexible Modeling of Conditional Distributions using Smooth Mixtures of Asymmetric Student T Densities                                  & Matlab   & All         & GitHub       & \citet{LiF2010FlexibleModeling}                             \\
+flutils       & A collection of R functions required by other packages                                                                    & R        & All         & GitHub                                                                     \\
+GSM           & Flexible modeling of conditional distributions using smooth mixtures of asymmetric Student t densities                                  & MATLAB   & All         & GitHub       & \citet{LiF2010FlexibleModeling}                             \\
   \bottomrule
 \end{tabular}
 }
@@ -362,13 +391,13 @@ GSM           & Flexible Modeling of Conditional Distributions using Smooth Mixt
       \multicolumn{4}{l}{\footnotesize（中央财经大学精品实验课、课程思政专项立项课程）}                                     \\
       \textbf{数据科学工具}                     & 本科生                & 中央财经大学                   & 2018 -- 2023     \\
       \footnotesize{（中央财经大学核心通识课）} &                       &                                &                  \\
-      \textbf{Python程序设计与数据挖掘}         & MBA 研究生            & 中央财经大学商学院             & 2022 -- 2024     \\
+      \textbf{Python程序设计与数据挖掘}         & MBA研究生            & 中央财经大学商学院             & 2022 -- 2024     \\
                                                 & 研究生                & 中央财经大学粤港澳大湾区研究院 & 2021 -- 2022     \\
       \textbf{大数据分布式计算}                 & 本科生/研究生         & 中央财经大学                   & 2020秋 -- 2024   \\
                                                 & 研究生                & 首都高校大数据联合培养硕士     & 2014秋 -- 2019秋 \\
-                                                & 研究生                & 首都经济贸易大学               & 2020春 --2021春  \\
+                                                & 研究生                & 首都经济贸易大学               & 2020春 -- 2021春  \\
       \textbf{大数据计算机基础}                 & 研究生                & 首都高校大数据联合培养硕士     & 2015秋           \\
-      \textbf{应用统计案例选讲}                 & 研究生                & 中央财经大学                   & 2016-2018春      \\
+      \textbf{应用统计案例选讲}                 & 研究生                & 中央财经大学                   & 2016春 -- 2018春      \\
       \textbf{贝叶斯分析}$^*$                   & 研究生                & 斯德哥尔摩大学                 & 2013春           \\
                                                 & 本科生                & 中央财经大学                   & 2017春           \\
                                                 & 研究生                & 首都师范大学                   & 2017春           \\
@@ -387,7 +416,7 @@ GSM           & Flexible Modeling of Conditional Distributions using Smooth Mixt
 \section{主持教改课题}
 
 \begin{itemize}
-\item 2023年~~中央财经大学 教学方法研究项目：AI时代下的《统计计算》课程思政建设。
+\item 2023年~~中央财经大学教学方法研究项目：AI时代下的《统计计算》课程思政建设。
 \item 2019年~~中央财经大学 数据科学大数据技术方向新开课项目。
 \item 2018年~~中央财经大学 精品实验课 《统计计算》项目（结项优秀）。
 \end{itemize}
@@ -396,10 +425,10 @@ GSM           & Flexible Modeling of Conditional Distributions using Smooth Mixt
 
 \begin{itemize}
 
-\item 指导超过50名本科生和研究生（包括MBA和EMBA学生）毕业论文。学生或进入顶尖高校攻读博士学位，或在联合国等国际组织、字节跳动和腾讯等领先科技公司、主要金融机构和研究组织任职。
-\item 任北京大学——香港大学 EMBA 项目学术导师。
-\item 任2026年光华——大众汽车集团整合实践项目指导教师。
-\item 他还指导过联合国大数据黑客松（2022--2023）等具有国际影响力的竞赛。
+\item 指导超过50名本科生和研究生（包括MBA和EMBA学生）毕业论文。学生毕业后或进入顶尖高校攻读博士学位，或在联合国等国际组织、字节跳动和腾讯等领先科技公司、主要金融机构和研究组织任职。
+\item 担任北京大学--香港大学 EMBA 项目学术导师。
+\item 担任2026年光华--大众汽车集团整合实践项目指导教师。
+\item 曾指导联合国大数据黑客松（2022--2023）等具有国际影响力的竞赛。
 
 \end{itemize}
 
@@ -408,102 +437,95 @@ GSM           & Flexible Modeling of Conditional Distributions using Smooth Mixt
 
 \begin{itemize}
 
-\item 第45届国际预测研讨会 (The 45th  International Symposium on Forecasting), 2025年6月29日--7月2日，中国北京。
-\item The 2024 PKU workshop on Modern Bayesian Computation, 2024年12月9日，中国北京。
+\item 第45届国际预测研讨会 (The 45th International Symposium on Forecasting), 2025年6月29日--7月2日，中国北京。
+\item The 2024 PKU Workshop on Modern Bayesian Computation, 2024年12月9日，中国北京。
 \item The 2017 Beijing Workshop on Forecasting, 2017年11月18日，中国北京。
-\item 中国数量经济学会2016年会，2016年10月15-17日，中国北京。
+\item 中国数量经济学会2016年会，2016年10月15日--17日，中国北京。
 
 \item 金融工程与风险研讨会 (International Symposium on Financial Engineering and Risk Management) 2014,
-  2014年6月27-28日, 中国北京。
+  2014年6月27日--28日，中国北京。
 
-\item 第一届瑞典统计学博士生会议 (The 1st Swedish Research Students Conference in Statistics), 2013年4月18日-19日, 瑞典斯德哥尔摩。
+\item 第一届瑞典统计学博士生会议 (The 1st Swedish Research Students Conference in Statistics), 2013年4月18日--19日，瑞典斯德哥尔摩。
 \end{itemize}
 
 \section{部分会议发言}
 
 \begin{etaremune}[itemsep=0ex,parsep=0pt]
 
-\item Workshop on Learning spatial and temporal dependence in the age of AI, Tsinghua Sanya International Mathematics Forum (TSIMF), January 5-9, 2026, Sanya, China. Invited Speaker.
+\item Workshop on Learning Spatial and Temporal Dependence in the Age of AI, Tsinghua Sanya International Mathematics Forum (TSIMF), January 5--9, 2026, Sanya, China. Invited Speaker.
 
-\item The 2025 NBER-NSF Time Series Conference, September 19-20, 2025, New Jersey, United States.
+\item The 2025 NBER-NSF Time Series Conference, September 19--20, 2025, New Jersey, United States.
 
-\item The 3rd Joint Conference on Statistics and Data Science in China, July 11-13, 2025, Hangzhou, China. Invited Speaker.
+\item The 3rd Joint Conference on Statistics and Data Science in China, July 11--13, 2025, Hangzhou, China. Invited Speaker.
 
 \item Quarterly Forecasting Forum (International Institute of Forecasters), University of Bath School of Management, February 14, 2025, UK.
 
-\item The 7th International Conference on Econometrics and Statistics (EcoSta 2024), July 17, 2014, Beijing, China.
+\item The 7th International Conference on Econometrics and Statistics (EcoSta 2024), July 17, 2024, Beijing, China.
 
-\item The 44th International Symposium on Forecasting, June 30-July 02, 2024, Dijon, France.
+\item The 44th International Symposium on Forecasting, June 30--July 2, 2024, Dijon, France.
 
 \item The 23rd IEEE International Conference on Data Mining, December 1 - 4, 2023, Shanghai, China.
 
-\item The 9th International Forum on Statistics (RUC IFS 2023), July 14-15, 2023, Beijing, China.
+\item The 9th International Forum on Statistics (RUC IFS 2023), July 14--15, 2023, Beijing, China.
 
-\item The 2023 ICSA China Conference, June 30 – July 3, 2023, Sichuan, China.
+\item The 2023 ICSA China Conference, June 30--July 3, 2023, Sichuan, China.
 
-\item The 2021 World Meeting of the International Society for Bayesian Analysis, Jun
-  28— Jul 02, 2021。邀请发言人。
+\item The 2021 World Meeting of the International Society for Bayesian Analysis, June 28--July 2, 2021。邀请发言人。
 
-\item The 41st International Symposium on Forecasting, 2021年7月27-30。邀请发言人。
+\item The 41st International Symposium on Forecasting, 2021年7月27日--30日。邀请发言人。
 
-\item The 40th International Symposium on Forecasting,  2020年10月25-11月5日。邀请发言人。
+\item The 40th International Symposium on Forecasting,  2020年10月25日--11月5日。邀请发言人。
 
-\item Twelfth International Conference on Monte Carlo Methods and Application (MCM 2019),
-  澳大利亚悉尼, 2019年7月8-12日。邀请发言人。
+\item Twelfth International Conference on Monte Carlo Methods and Applications (MCM 2019),
+  澳大利亚悉尼, 2019年7月8日--12日。邀请发言人。
 
-\item The 39th International Symposium on Forecasting, Thessaloniki, 希腊 2019年6月16-19。邀请发言人。
+\item The 39th International Symposium on Forecasting, Thessaloniki, 希腊，2019年6月16日--19日。邀请发言人。
 
-\item ICSA Conference on Data Science, January 11-13, 2019, Xishuangbanna, China。邀请发言人。
+\item ICSA Conference on Data Science, 2019年1月11日--13日，中国西双版纳。邀请发言人。
 
-\item International Symposium on Financial Engineering and Risk Management 2018, 2018年6月13,
-  2018, 中国上海。邀请发言人。
+\item International Symposium on Financial Engineering and Risk Management 2018, 2018年6月13日，中国上海。邀请发言人。
 
-\item School of Data Science, Fudan University, Oct 28-30, 2017, 中国上海。邀请发言人。
+\item School of Data Science, Fudan University, 2017年10月28日--30日，中国上海。邀请发言人。
 
-\item IMS-China International Conference on Statistics and Probability, June 28 – July 1,
-  2017, 中国南宁。邀请发言人。
+\item IMS-China International Conference on Statistics and Probability, 2017年6月28日--7月1日，中国南宁。邀请发言人。
 
 
-\item The 2016 World Meeting of the International Society for Bayesian Analysis, Jun
-  13—17, 2016, Sardinia, 意大利。邀请发言人。
+\item The 2016 World Meeting of the International Society for Bayesian Analysis, 2016年6月13日--17日，意大利撒丁岛。邀请发言人。
 
-\item IMS-China International Conference on Statistics and Probability, June 1-4, 2015,
-  Kunming, China. 邀请发言人。
+\item IMS-China International Conference on Statistics and Probability, 2015年6月1日--4日，中国昆明。邀请发言人。
 
-\item 第十届全国概率统计会议，2014年10月17日-21日，中国山东。邀请发言人。
+\item 第十届全国概率统计会议，2014年10月17日--21日，中国山东。邀请发言人。
 
-\item International Symposium on Financial Engineering and Risk Management 2014, 2014年6月27,
-  2014, 中国北京。邀请发言人。
+\item International Symposium on Financial Engineering and Risk Management 2014, 2014年6月27日，中国北京。邀请发言人。
 
-\item 大数据决策与合规论坛，2014年5月20-21日，中国深圳。邀请发言人。
+\item 大数据决策与合规论坛，2014年5月20日--21日，中国深圳。邀请发言人。
 
-\item Guanghua School of Management Peking University, Oct 14, 2013, 中国北京。邀请发言人。
+\item Guanghua School of Management, Peking University, 2013年10月14日，中国北京。邀请发言人。
 
 \item The 2012 World Meeting of the International Society for Bayesian
-  Analysis， 2012年6月25日---29日， 日本。
+  Analysis，2012年6月25日---29日，日本。
 
 \item The third Linnaeus University Workshop in Stochastic Analysis and
-  Applications, 2012年5月24日---25日， 瑞典。邀请发言人。
+  Applications, 2012年5月24日---25日，瑞典。邀请发言人。
 
 \item Seminar at Department of Energy and Technology， Swedish
-  University of Agricultural Sciences, 2012年4月16， 瑞典。
+  University of Agricultural Sciences, 2012年4月16日，瑞典。
 
 \item Workshop on ``Analysis of High-Dimensional Data''，
   Jönköping International Business School， 2012年2月16日---17日，瑞典。
   邀请发言人。
 
 \item The LiU Seminar Series in Statistics and Mathematical Statistics，
-  Linköping University， 2011年10月11日， 瑞典。 邀请发言人。
+  Linköping University， 2011年10月11日，瑞典。邀请发言人。
 
 \item The 42nd Winter Conference in Statistics --- Incomplete data：
   semi-parametric and Bayesian methods， 2011年3月6日---10日，
   瑞典。 邀请发言人。
 
 \item The 2010 World Meeting of the International Society for Bayesian
-  Analysis， 2010年6月3日---8日， 西班牙。
+  Analysis， 2010年6月3日---8日，西班牙。
 
-\item Seminar at Department of statistics， Uppsala University， 2009年9
-  月16日， 瑞典。
+\item Seminar at Department of Statistics， Uppsala University， 2009年9月16日，瑞典。
 
 \end{etaremune}
 
@@ -519,20 +541,16 @@ GSM           & Flexible Modeling of Conditional Distributions using Smooth Mixt
 \item 访问加拿大多伦多大学，\emph{2014年8月}。
 \item 访问瑞典斯德哥尔摩大学，\emph{2013年10月}。
 
-\item 访问瑞典林雪平大学，\emph{2011年9月1日 --- 2012年 2月29日}。
+\item 访问瑞典林雪平大学，\emph{2011年9月1日 --- 2012年2月29日}。
 
-\item 参与短期博士生课程： ``Introduction to Bayesian Analysis and
-  MCMC， and，Hierarchical Modelling of Spatial and Temporal Data''，讲
-  师: Alan Gelfand (杜克大学) Sujit Sahu (南安普顿大学)， June
-  7---10，2011， 英国。
+\item 参加短期博士生课程： ``Introduction to Bayesian Analysis and
+  MCMC and Hierarchical Modelling of Spatial and Temporal Data''，授课教师：Alan Gelfand（杜克大学）和 Sujit Sahu（南安普顿大学），2011年6月7日---10日，英国。
 
-\item 参与短期博士生课程： ``Semi-Parametric Bayesian Inference in
-  Econometrics'' 讲师: Peter Rossi (芝加哥大
-  学)， 2009年5月 27---29日，2009，荷兰。
+\item 参加短期博士生课程： ``Semi-Parametric Bayesian Inference in
+  Econometrics''，授课教师：Peter Rossi（芝加哥大学），2009年5月27日---29日，荷兰。
 
 \item 瑞典中央银行会议 ``Modeling and Forecasting Economic and
-  Financial Time Series with State Space
-  models''， 2008年10月 17---18日，瑞典斯德哥尔摩。
+  Financial Time Series with State-Space Models''，2008年10月17日---18日，瑞典斯德哥尔摩。
 \end{itemize}
 
 
@@ -542,8 +560,8 @@ GSM           & Flexible Modeling of Conditional Distributions using Smooth Mixt
 
 \item   担任国家社科基金项目同行评议专家。
 \item   担任国内外知名高校博士论文答辩评委，为北京大学、复旦大学、中国科学技术大学、澳大利亚蒙纳士大学等30余篇博士论文撰写独立评审意见。
-\item   担任联合国大数据黑客松大赛指导老师（2022年-2023年）。
-\item   担任统计学、计算机与人工智能、管理学等领域60余种国际期刊的匿名评审，过去五年撰写160多个高质量匿名论文评审意见。期刊评审记录详见 \url{https://orcid.org/0000-0002-4248-9778}。以下列出部分常审稿期刊。
+\item   担任联合国大数据黑客松大赛指导教师（2022--2023年）。
+\item   担任统计学、计算机与人工智能、管理学等领域60余种国际期刊的匿名评审，过去五年撰写160余份高质量匿名论文评审意见。期刊评审记录详见 \url{https://orcid.org/0000-0002-4248-9778}。以下列出部分常审期刊。
 
   \begin{tabular}{lp{12cm}}
     \toprule
@@ -551,23 +569,23 @@ GSM           & Flexible Modeling of Conditional Distributions using Smooth Mixt
              Journal of the American Statistical Association,
              Journal of the Royal Statistical Society: Series B (Statistical Methodology),
              Bayesian Analysis,
-             Journal of Business \& Economics Statistics,
+             Journal of Business \& Economic Statistics,
              Annals of Applied Statistics,
              《数理统计与管理》\\
     \cline{1-1}
     计算机与人工智能 &
                        IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI),
-                       IEEE transactions on knowledge and data engineering (TKDE),
+                       IEEE Transactions on Knowledge and Data Engineering (TKDE),
                        Neurocomputing,
                        Pattern Recognition,
                        《计算机学报》\\
     \cline{1-1}
     经济与管理 &
                  International Journal of Forecasting,
-                 Insurance - Mathematics \& Economics,
+                 Insurance: Mathematics \& Economics,
                  Annals of Tourism Research,
                  Computational Economics,
-                 Omega - The International Journal of Management Science\\
+                 Omega: The International Journal of Management Science\\
     \bottomrule
   \end{tabular}
 
@@ -580,7 +598,7 @@ GSM           & Flexible Modeling of Conditional Distributions using Smooth Mixt
   2023--     & 北京市统计学会理事                                             \\
   2023--     & 中国土木工程学会风险管理分会理事                               \\
   2018--2023 & 全国工业统计学教学研究会常务理事、中国青年统计学家协会副秘书长 \\
-  2014--2023 & 中国统计教育学会高等教育分会副秘书长。                         \\
+  2014--2023 & 中国统计教育学会高等教育分会副秘书长                         \\
   % 2013--2014 & 2014年金融工程与风险管理国际研讨会执行秘书。                   \\
 \end{tabular}
 
